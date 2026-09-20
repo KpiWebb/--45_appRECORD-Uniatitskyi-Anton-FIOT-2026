@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Звіт з лабораторних робіт</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; margin: 0; padding: 15px; }
+        .header { text-align: center; margin-bottom: 20px; position: relative; }
+        .photo-box { position: absolute; top: 0; right: 20px; width: 100px; height: 130px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; }
+        .nav-horizontal { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .nav-horizontal a { padding: 15px 10px; border: 1px solid #000; border-radius: 10px; text-decoration: none; color: #000; font-size: 14px; text-align: center; }
+        .nav-horizontal a.active { background-color: #ffff99; font-weight: bold; }
+        .layout { display: flex; gap: 20px; }
+        .sidebar { width: 280px; display: flex; flex-direction: column; gap: 10px; }
+        .sidebar a { padding: 15px; border: 1px solid #000; border-radius: 25px; text-decoration: none; color: #000; font-size: 14px; text-align: center; background: #fff; }
+        .main-content { flex-grow: 1; border: 2px solid #000; padding: 20px; height: 70vh; overflow-y: auto; }
+        section { border-bottom: 1px dashed #ccc; padding-bottom: 30px; margin-bottom: 30px; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 4px solid #333; overflow-x: auto; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h3>З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. FRONTEND РОЗРОБКИ»</h3>
+        <p><b>Виконавець: Студент групи ІО-45 Унятицький Антон</b></p>
+        <div class="photo-box" style="padding: 0; overflow: hidden;">
+            <img src="img/student.jpg" alt="Фото студента" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+    </div>
+
+    <div class="nav-horizontal">
+        <a href="#" class="active">Лабораторна<br>робота №1</a>
+        <a href="#">Лабораторна<br>робота №2</a>
+        <a href="#">Лабораторна<br>робота №3</a>
+        <a href="#">Лабораторна<br>робота №4</a>
+        <a href="#">Лабораторна<br>робота №5</a>
+        <a href="#">Лабораторна<br>робота №6</a>
+        <a href="#">Лабораторна<br>робота №7</a>
+        <a href="#">Лабораторна<br>робота №8</a>
+        <a href="#">Лабораторна<br>робота №9</a>
+    </div>
+
+    <div class="layout">
+        <div class="sidebar">
+            <a href="#topic1">Тема Мета Місце розташування сайту, звіту</a>
+            <a href="#topic2">Опис предметного середовища. Опис бізнес-логіки</a>
+            <a href="#topic3">Структура документа</a>
+            <a href="#topic4">HTML-код ТАБЛИЦІ</a>
+            <a href="#topic5">HTML-код ЗОБРАЖЕННЯ</a>
+            <a href="#topic6">HTML-код ФОРМИ</a>
+            <a href="#topic7">HTML-код СПИСКІВ</a>
+            <a href="#topic8">Висновки</a>
+        </div>
+
+        <div class="main-content">
+            <h2 style="text-align:center;">Місце виведення інформації</h2>
+
+            <section id="topic1">
+                <h3>Тема, Мета, Місце розташування</h3>
+                <p><b>Тема:</b> ТЕГИ ТА АТРИБУТИ HTML-ДОКУМЕНТА. СТРУКТУРНА РОЗМІТКА. GIT.GITHUB. РОБОТА З РЕПОЗИТОРІЯМИ.</p>
+                <p><b>Мета:</b> придбати практичні навички роботи з GitHub, репозиторіями, HTML-документом, таблицями, зображеннями, посиланнями, списками, формами.</p>
+                <ul>
+                    <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026">Посилання на репозиторій власного WEB-застосунку</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/">Посилання на живу сторінку власного WEB-застосунку</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026">Посилання на репозиторій звітного HTML-документа</a></li>
+                    <li><a href="#">Посилання на живу сторінку звітного HTML-документ</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026">Посилання на репозиторій з самостійними роботами</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026/">Посилання на живу сторінку з самостійними роботами</a></li>
+                </ul>
+            </section>
+
+            <section id="topic2">
+                <h3>Опис предметного середовища. Опис бізнес-логіки</h3>
+                <p>Дані винесені на окрему сторінку `logic.html` у головному застосунку. Застосунок є каталогом аніме, що дозволяє шукати та переглядати тайтли за допомогою списків та форм.</p>
+            </section>
+
+            <section id="topic3">
+                <h3>Структура документа</h3>
+                <p>Головна сторінка WEB-застосунку містить семантичну структуру HTML5. Використано теги заголовків <code>&lt;h1&gt;-&lt;h2&gt;</code>, форми <code>&lt;form&gt;</code> для пошуку, списки <code>&lt;ul&gt;, &lt;ol&gt;</code> для відображення жанрів, таблицю <code>&lt;table&gt;</code> для рейтингів та тег <code>&lt;img&gt;</code> для постера.</p>
+            </section>
+
+            <section id="topic4">
+                <h3>HTML-код ТАБЛИЦІ</h3>
+                <img src="img/table.png" alt="Постер" width="250">
+                <pre><code>&lt;table border="1" cellpadding="5" cellspacing="0"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Назва&lt;/th&gt;
+        &lt;th&gt;Студія&lt;/th&gt;
+        &lt;th&gt;Рейтинг&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Code Geass&lt;/td&gt;
+        &lt;td&gt;Sunrise&lt;/td&gt;
+        &lt;td&gt;8.7&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                <h4>Теорія:</h4>
+                <p>Тег <code>&lt;table&gt;</code> є контейнером для таблиці. <code>&lt;tr&gt;</code> створює рядок, <code>&lt;th&gt;</code> визначає заголовок стовпця (текст у ньому жирний та вирівняний по центру), а <code>&lt;td&gt;</code> використовується для звичайних комірок з даними.</p>
+            </section>
+
+            <section id="topic5">
+                <h3>HTML-код ЗОБРАЖЕННЯ</h3>
+                <img src="img/image.png" alt="Постер" width="250">
+                <pre><code>&lt;img src="link.png" alt="Постер" width="250"&gt;</code></pre>
+                <h4>Теорія:</h4>
+                <p>Тег <code>&lt;img&gt;</code> не потребує закриваючого тегу. Атрибут <code>src</code> вказує шлях до файлу, <code>alt</code> містить альтернативний текст (якщо зображення не завантажиться), а <code>width</code> та <code>height</code> задають розміри.</p>
+            </section>
+
+            <section id="topic6">
+                <h3>HTML-код ФОРМИ</h3>
+                <img src="img/form.png" alt="Постер" width="250">
+                <pre><code>&lt;form action="#" method="GET"&gt;
+    &lt;label for="search"&gt;Назва:&lt;/label&gt;
+    &lt;input type="text" id="search" name="search"&gt;
+    &lt;button type="submit"&gt;Шукати&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </section>
+
+            <section id="topic7">
+                <h3>HTML-код СПИСКІВ</h3>
+                <img src="img/list.png" alt="Постер" width="250">
+                <pre><code>&lt;ul&gt;
+    &lt;li&gt;Елемент 1&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                <h4>Теорія:</h4>
+                <p>Тег <code>&lt;ul&gt;</code> створює маркірований список, а <code>&lt;ol&gt;</code> — нумерований. Елементи обох типів списків створюються за допомогою тегу <code>&lt;li&gt;</code>.</p>
+            </section>
+
+            <section id="topic8">
+                <h3>Висновки</h3>
+                <p>Під час виконання лабораторної роботи було набуто практичних навичок створення базової структури HTML-документа, роботи з тегами таблиць, списків, форм та зображень. Було успішно налаштовано середовище розробки, створено локальні та віддалені репозиторії на базі Git/GitHub, а також налаштовано хостинг статичних сторінок за допомогою GitHub Pages.</p>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
