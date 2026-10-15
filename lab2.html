@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіт з лабораторної роботи №2</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; margin: 0; padding: 15px; }
+        .header { text-align: center; margin-bottom: 20px; position: relative; }
+        .photo-box { position: absolute; top: 0; right: 20px; width: 100px; height: 130px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; }
+        .nav-horizontal { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .nav-horizontal a { padding: 15px 10px; border: 1px solid #000; border-radius: 10px; text-decoration: none; color: #000; font-size: 14px; text-align: center; }
+        .nav-horizontal a.active { background-color: #ffff99; font-weight: bold; }
+        .layout { display: flex; gap: 20px; }
+        .sidebar { width: 280px; display: flex; flex-direction: column; gap: 10px; }
+        .sidebar a { padding: 15px; border: 1px solid #000; border-radius: 25px; text-decoration: none; color: #000; font-size: 14px; text-align: center; background: #fff; }
+        .main-content { flex-grow: 1; border: 2px solid #000; padding: 20px; height: 70vh; overflow-y: auto; }
+        section { border-bottom: 1px dashed #ccc; padding-bottom: 30px; margin-bottom: 30px; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 4px solid #333; overflow-x: auto; }
+        .screenshot { max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0; display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h3>З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. FRONTEND РОЗРОБКИ»</h3>
+        <p><b>Виконавець: Студент групи ІО-45 Унятицький Антон</b></p>
+        <div class="photo-box" style="padding: 0; overflow: hidden;">
+            <img src="img/student.jpg" alt="Фото студента" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+    </div>
+
+    <!-- ВЕРХНЄ МЕНЮ ЛАБОРАТОРНИХ РОБІТ -->
+    <div class="nav-horizontal">
+        <a href="index.html">Лабораторна<br>робота №1</a>
+        <a href="lab2.html" class="active">Лабораторна<br>робота №2</a>
+        <a href="#">Лабораторна<br>робота №3</a>
+        <a href="#">Лабораторна<br>робота №4</a>
+        <a href="#">Лабораторна<br>робота №5</a>
+        <a href="#">Лабораторна<br>робота №6</a>
+        <a href="#">Лабораторна<br>робота №7</a>
+        <a href="#">Лабораторна<br>робота №8</a>
+        <a href="#">Лабораторна<br>робота №9</a>
+    </div>
+
+    <div class="layout">
+        <!-- БОКОВЕ МЕНЮ (СТРОГО ЗА МАКЕТОМ ЛР2) -->
+        <div class="sidebar">
+            <a href="#topic1">Тема, мета ЛР №2. Місце розташування сайту, звіту</a>
+            <a href="#topic2">Способи підключення стилів</a>
+            <a href="#topic3">Селектори тегу</a>
+            <a href="#topic4">Селектори класу</a>
+            <a href="#topic5">Селектори ідентифікаторів</a>
+            <a href="#topic6">Інші селектори</a>
+            <a href="#topic7">CSS: Шрифти, Текст, Таблиці, Фон, Контур, Списки, CSS Просунутий</a>
+            <a href="#topic8">Висновки до ЛР №2</a>
+        </div>
+
+        <!-- ОСНОВНИЙ КОНТЕНТ ЗВІТУ -->
+        <div class="main-content">
+            <h2 style="text-align:center;">Звіт з Лабораторної роботи №2</h2>
+
+            <section id="topic1">
+                <h3>Тема, мета ЛР №2. Місце розташування сайту, звіту</h3>
+                <p><b>Тема:</b> КАСКАДНІ ТАБЛИЦІ СТИЛІВ. СЕЛЕКТОРИ ТЕГУ, КЛАСУ, ІДЕНТИФІКАТОРА. СТИЛЬОВЕ ОФОРМЛЕННЯ ТЕКСТОВИХ ЕЛЕМЕНТІВ В HTML-ДОКУМЕНТАХ.</p>
+                <p><b>Мета:</b> Придбати практичні навички роботи з селекторами, ідентифікаторами, списками, різноманітними властивостями кольору і фону, зовнішніми та внутрішніми відступами, оформленням текстових елементів та каскадними таблицями стилів.</p>
+                <ul>
+                    <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій власного WEB-застосунку</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Жива сторінка власного WEB-застосунку</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій Резюме (Самостійна робота)</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Жива сторінка Резюме</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій звітного HTML-документа</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026/lab2.html" target="_blank">Жива сторінка даного звіту (ЛР №2)</a></li>
+                </ul>
+            </section>
+
+            <section id="topic2">
+                <h3>Способи підключення стилів</h3>
+                <p>У WEB-застосунку застосовано <b>внутрішню таблицю стилів</b> (тег <code>&lt;style&gt;</code> у секції <code>&lt;head&gt;</code>), а також вбудовані (inline) стилі через атрибут <code>style="..."</code>.</p>
+                <pre><code>&lt;!-- Приклад внутрішньої таблиці стилів --&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;!-- Приклад inline-стилю --&gt;
+&lt;img src="img/noute.jpg" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"&gt;</code></pre>
+            </section>
+
+            <section id="topic3">
+                <h3>Селектори тегу</h3>
+                <p>Селектори тегів застосовано для задання базового оформлення структурних елементів HTML (<code>body</code>, <code>header</code>, <code>main</code>, <code>footer</code>, <code>h1</code>, <code>p</code>):</p>
+                <pre><code>body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f4f7f6; 
+    color: #333; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+header, footer { background-color: #2c3e50; color: white; text-align: center; }</code></pre>
+                <p><b>Скріншот результату у браузері:</b></p>
+                <img src="img/tag-selector.png" alt="Скріншот селекторів тегу" class="screenshot">
+            </section>
+
+            <section id="topic4">
+                <h3>Селектори класу</h3>
+                <p>Селектори класів використано для стилізації таблиць характеристик (<code>.tech-table</code>) та списку категорій (<code>.category-list</code>):</p>
+                <pre><code>.category-list { 
+    list-style-type: square; 
+    background: #fff; 
+    padding: 15px 35px; 
+    border-radius: 8px; 
+}
+.tech-table { width: 100%; border-collapse: collapse; background: #fff; }
+.tech-table th { background-color: #3498db; color: white; }</code></pre>
+                <p><b>Скріншот результату у браузері:</b></p>
+                <img src="img/class-selector.png" alt="Скріншот селекторів класу" class="screenshot">
+            </section>
+
+            <section id="topic5">
+                <h3>Селектори ідентифікаторів</h3>
+                <p>Селектор ідентифікатора <code>#register-form</code> застосовано для оформлення картки форми реєстрації користувача:</p>
+                <pre><code>#register-form { 
+    background: #fff; 
+    padding: 25px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    max-width: 400px; 
+    border: 1px solid #e0e0e0; 
+}</code></pre>
+                <p><b>Скріншот результату у браузері:</b></p>
+                <img src="img/id-selector.png" alt="Скріншот селектора ідентифікатора" class="screenshot">
+            </section>
+
+            <section id="topic6">
+                <h3>Інші селектори</h3>
+                <p>У проєкті також використано універсальний селектор, сусідні та дочірні селектори, а також селектори атрибутів:</p>
+                <pre><code>/* Універсальний селектор (скидання відступів) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Сусідній селектор (абзац одразу після h1) */
+header h1 + p { font-style: italic; color: #bdc3c7; }
+
+/* Дочірній селектор (прямий нащадок h2 всередині main) */
+main > h2 { color: #2c3e50; border-bottom: 2px solid #3498db; }
+
+/* Селектор атрибута (поля введення конкретного типу) */
+input[type="email"], input[type="password"] { 
+    width: 100%; padding: 12px; border: 2px solid #ccc; border-radius: 4px; 
+}</code></pre>
+                <p><b>Скріншот результату у браузері:</b></p>
+                <img src="img/other-selectors.png" alt="Скріншот інших селекторів" class="screenshot">
+            </section>
+
+            <section id="topic7">
+                <h3>CSS: Шрифти, Текст, Таблиці, Фон, Контур, Списки, CSS Просунутий</h3>
+                <p>У розробці застосовано комплексну стилізацію текстових елементів та блоків:</p>
+                <ul>
+                    <li><b>Шрифти та текст:</b> <code>font-family</code>, <code>font-style</code>, <code>font-weight</code>, <code>color</code>.</li>
+                    <li><b>Фон та контури:</b> <code>background-color</code>, <code>border-radius</code>, <code>box-shadow</code>, <code>border</code>.</li>
+                    <li><b>Списки та таблиці:</b> <code>list-style-type: square</code>, <code>border-collapse</code>, <code>padding</code>.</li>
+                    <li><b>CSS Просунутий (Псевдокласи та анімації):</b> 
+                        <code>:hover</code> (зміна кольору кнопок і рядків таблиці при наведенні), 
+                        <code>:focus</code> (підсвічування полів вводу), 
+                        <code>:nth-child(even)</code> (зебра-стиль для таблиці), 
+                        <code>transition</code> (плавна зміна станів).
+                    </li>
+                </ul>
+                <pre><code>/* Приклад просунутого CSS */
+button[type="submit"]:hover { background-color: #27ae60; }
+input[type="email"]:focus { border-color: #3498db; }
+.tech-table tr:nth-child(even) { background-color: #f9f9f9; }
+.tech-table tr:hover { background-color: #e8f4f8; transition: background 0.2s; }</code></pre>
+                <p><b>Скріншот стилізованої сторінки з ефектами:</b></p>
+                <img src="img/css-advanced.png" alt="Скріншот підсумкового CSS" class="screenshot">
+            </section>
+
+            <section id="topic8">
+                <h3>Висновки до ЛР №2</h3>
+                <p>Під час виконання лабораторної роботи №2 було набуто практичних навичок роботи з каскадними таблицями стилів (CSS). Було опановано використання різних типів селекторів (тегів, класів, ідентифікаторів, дочірніх, сусідніх та селекторів атрибутів), а також налаштовано гармонійне стильове оформлення шрифтів, блоків, таблиць, списків та форм з використанням сучасних ефектів псевдокласів (<code>:hover</code>, <code>:focus</code>, <code>:nth-child</code>) та плавних transitions.</p>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
