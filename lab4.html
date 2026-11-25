@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіт з лабораторної роботи №4</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; margin: 0; padding: 15px; }
+        .header { text-align: center; margin-bottom: 20px; position: relative; }
+        .photo-box { position: absolute; top: 0; right: 20px; width: 100px; height: 130px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; overflow: hidden; }
+        .photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .nav-horizontal { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .nav-horizontal a { padding: 15px 10px; border: 1px solid #000; border-radius: 10px; text-decoration: none; color: #000; font-size: 14px; text-align: center; }
+        .nav-horizontal a.active { background-color: #ffff99; font-weight: bold; }
+        .layout { display: flex; gap: 20px; }
+        .sidebar { width: 280px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
+        .sidebar a { padding: 15px; border: 1px solid #000; border-radius: 25px; text-decoration: none; color: #000; font-size: 14px; text-align: center; background: #fff; }
+        .main-content { flex-grow: 1; min-width: 0; border: 2px solid #000; padding: 20px; height: 70vh; overflow-y: auto; }
+        section { border-bottom: 1px dashed #ccc; padding-bottom: 30px; margin-bottom: 30px; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 4px solid #333; overflow-x: auto; font-family: monospace; font-size: 13px; }
+        .screenshot { max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0; display: block; }
+        figure { margin: 10px 0; }
+        figcaption { font-size: 14px; font-style: italic; }
+
+        @media screen and (max-width: 992px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: auto; flex-direction: row; flex-wrap: wrap; }
+            .sidebar a { flex: 1 1 14rem; border-radius: 15px; }
+            .main-content { height: auto; }
+        }
+        @media screen and (max-width: 640px) {
+            body { padding: 8px; }
+            .header h3 { font-size: 1rem; }
+            .photo-box { position: static; margin: 0 auto 10px; }
+            .nav-horizontal a { padding: 8px 6px; font-size: 12px; }
+            .main-content { padding: 10px; }
+        }
+        @media not print {
+            .sidebar a { transition: background 0.2s; }
+            .sidebar a:hover { background: #ffff99; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h3>З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. ОСНОВИ FRONTEND та BACKEND РОЗРОБОК»</h3>
+        <p><b>Студент групи ІО-45 Унятицький Антон</b></p>
+        <div class="photo-box">
+            <img src="img/student.jpg" alt="Фото студента">
+        </div>
+    </div>
+
+    <div class="nav-horizontal">
+<a href="index.html">Лабораторна<br>робота №1</a>
+<a href="lab2.html">Лабораторна<br>робота №2</a>
+<a href="lab3.html">Лабораторна<br>робота №3</a>
+<a href="lab4.html" class="active">Лабораторна<br>робота №4</a>
+<a href="#">Лабораторна<br>робота №5</a>
+<a href="#">Лабораторна<br>робота №6</a>
+<a href="#">Лабораторна<br>робота №7</a>
+<a href="#">Лабораторна<br>робота №8</a>
+<a href="#">Лабораторна<br>робота №9</a>
+    </div>
+
+    <div class="layout">
+        <div class="sidebar">
+<a href="#topic1">Тема, Мета. Місце розташування сайту, звіту</a>
+<a href="#task1">ЗАВДАННЯ №1</a>
+<a href="#task2">ЗАВДАННЯ №2</a>
+<a href="#task3">ЗАВДАННЯ №3</a>
+<a href="#task4">ЗАВДАННЯ №4</a>
+<a href="#task5">ЗАВДАННЯ №5</a>
+<a href="#task6">ЗАВДАННЯ №6</a>
+<a href="#task7">ЗАВДАННЯ №7</a>
+<a href="#task8">ЗАВДАННЯ №8</a>
+<a href="#task9">ЗАВДАННЯ №9. Калькулятор</a>
+<a href="#task10">ЗАВДАННЯ №10. Вікно авторизації</a>
+<a href="#topic-end">ВИСНОВКИ</a>
+        </div>
+
+        <div class="main-content">
+            <h2 style="text-align:center;">Звіт з Лабораторної роботи №4</h2>
+<section id="topic1"><h3>Тема, мета. Місце розташування сайту, звіту</h3>
+<p><b>Тема:</b> ОСНОВИ JAVASCRIPT У HTML-ДОКУМЕНТІ. ШАБЛОНІ РЯДКИ. КЕРУВАННЯ ПОРЯДКОМ ОБЧИСЛЕНЬ. МАСИВИ. МЕТОДИ МАСИВІВ. ФУНКЦІЇ</p>
+<p><b>Мета:</b> придбати практичні навички роботи з конструкціями мови JavaScript, масивами та функціями у js-сценаріях. Реалізація програм засобами мови JavaScript.</p>
+<p><b>Репозиторії:</b></p>
+<ul>
+  <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій власного WEB-застосунку</a></li>
+  <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій звітного HTML-документа</a></li>
+  <li><!-- TODO: підставити посилання на репозиторій із завданнями --><a href="https://github.com/KpiWebb/LR_IO-45_Uniatytskyi" target="_blank">Репозиторій WEB-застосунку із завданнями</a></li>
+</ul>
+<p><b>Живі сторінки:</b></p>
+<ul>
+  <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Власний WEB-застосунок (TechStore, вікно авторизації)</a></li>
+  <li><a href="https://kpiwebb.github.io/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026/lab4.html" target="_blank">Даний звіт (ЛР №4)</a></li>
+  <li><!-- TODO: підставити посилання на живу сторінку із завданнями --><a href="https://kpiwebb.github.io/LR_IO-45_Uniatytskyi/index.html" target="_blank">WEB-застосунок із завданнями</a></li>
+</ul>
+<p>Номер у списку групи — 23 (непарна колонка завдань), варіант завдань №7 і №9 — 3.</p></section>
+<section id="task1"><h3>ЗАВДАННЯ №1</h3><p>Значення вводиться через <code>prompt()</code>, виводиться в Console шаблонним рядком, після чого за допомогою <code>if / else if / else</code> визначається знак числа, а відповідь показується через <code>alert()</code>. Додано перевірки на Cancel, порожній рядок і нечислове введення.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- ЗАВДАННЯ 1 ----------
+Збережіть введене значення (метод prompt()) у змінну value.
+Вивести це значення у Console, використовуючи шаблонний рядок.
+Перевірити: введене значення від&#x27;ємне? Додатнє? Дорівнює нулю?
+Відповідь вивести за допомогою alert().
+Наприклад: при введенні 80 виведе «Число додатнє».
+Підказка: при введенні значень не забудьте зробити ряд перевірок.
+*/
+
+function task1() {
+  const value = prompt(&quot;Введіть число:&quot;);
+
+  if (value === null || value.trim() === &quot;&quot;) {
+    // Cancel або порожній рядок
+    alert(&quot;Ви нічого не ввели&quot;);
+  } else if (Number.isNaN(Number(value))) {
+    // Ввели текст, а не число
+    alert(&quot;Це не число&quot;);
+  } else {
+    const num = Number(value);
+    console.log(`Ви ввели: ${value}`);
+
+    if (num &gt; 0) {
+      alert(&quot;Число додатнє&quot;);
+    } else if (num &lt; 0) {
+      alert(&quot;Число від&#x27;ємне&quot;);
+    } else {
+      alert(&quot;Число дорівнює нулю&quot;);
+    }
+  }
+}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task1.png" alt="Console, завдання 1"><figcaption>Рис. 1. Console після введення числа 80 (завдання 1)</figcaption></figure></section>
+<section id="task2"><h3>ЗАВДАННЯ №2</h3><p>Значення від користувача порівнюється в <code>switch-case</code> зі строками <code>'1'</code>–<code>'4'</code>, результат записується у змінну <code>result</code> і виводиться в Console. Гілка <code>default</code> обробляє будь-яке інше введення.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- ЗАВДАННЯ 2 ----------
+Змінна number може набувати 4 значення: &#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27; або &#x27;4&#x27;
+(запитувати через prompt). Якщо &#x27;1&#x27; — у змінну result записати &#x27;зима&#x27;,
+якщо &#x27;2&#x27; — &#x27;весна&#x27; і так далі. Розв&#x27;язати через switch-case.
+Не забути про default на випадок іншого введення.
+Значення змінної result вивести в консоль.
+*/
+
+function task2() {
+  const number = prompt(&quot;Введіть номер пори року (1–4):&quot;);
+  let result;
+
+  switch (number === null ? null : number.trim()) {
+    case &quot;1&quot;:
+      result = &quot;зима&quot;;
+      break;
+    case &quot;2&quot;:
+      result = &quot;весна&quot;;
+      break;
+    case &quot;3&quot;:
+      result = &quot;літо&quot;;
+      break;
+    case &quot;4&quot;:
+      result = &quot;осінь&quot;;
+      break;
+    default:
+      result = &quot;Невірне значення: потрібно ввести 1, 2, 3 або 4&quot;;
+  }
+
+  console.log(result);
+}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task2.png" alt="Console, завдання 2"><figcaption>Рис. 2. Console після введення числа 3 (завдання 2)</figcaption></figure></section>
+<section id="task3"><h3>ЗАВДАННЯ №3</h3><p>Оголошено пари логін/пароль для Admin і User. Логін запитується через <code>prompt()</code> і виводиться в Console шаблонним рядком; для відомого логіна запитується пароль, при збігу в <code>alert()</code> виводиться «Hello, …». Cancel або порожній ввід дають «Cancelled», невідомий логін — «I don't know you».</p><p><b>Програмний код:</b></p><pre><code>/* ---------- ЗАВДАННЯ 3 ----------
+Є Admin та User з відповідними паролями (оголосити, проініціалізувати).
+Запитати у користувача логін (prompt) і вивести результат у консоль
+браузера, використовуючи шаблонний рядок.
+Якщо вводить &quot;Admin&quot; — prompt запитує пароль. При вдалій ідентифікації
+в alert вивести «Hello, Admin»; якщо нічого не ввели або натиснули
+Cancel — в alert рядок &quot;Cancelled&quot;; в іншому випадку в alert
+рядок &quot;I don&#x27;t know you&quot;.
+Те саме виконати з User.
+*/
+
+function task3() {
+  const adminName = &quot;Admin&quot;;
+  const adminPassword = &quot;admin123&quot;;
+  const userName = &quot;User&quot;;
+  const userPassword = &quot;user123&quot;;
+
+  const login = prompt(&quot;Введіть логін:&quot;);
+  console.log(`Ви ввели логін: ${login}`);
+
+  if (login === null || login.trim() === &quot;&quot;) {
+    // Cancel або порожній рядок
+    alert(&quot;Cancelled&quot;);
+  } else if (login === adminName || login === userName) {
+    const password = prompt(&quot;Введіть пароль:&quot;);
+    const correctPassword = login === adminName ? adminPassword : userPassword;
+
+    if (password === null || password === &quot;&quot;) {
+      alert(&quot;Cancelled&quot;);
+    } else if (password === correctPassword) {
+      alert(`Hello, ${login}`);
+    } else {
+      alert(&quot;Wrong password&quot;);
+    }
+  } else {
+    alert(&quot;I don&#x27;t know you&quot;);
+  }
+}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task3.png" alt="Console, завдання 3"><figcaption>Рис. 3. Console після входу під Admin (завдання 3)</figcaption></figure></section>
+<section id="task4"><h3>ЗАВДАННЯ №4</h3><p>Функція <code>makeTransaction</code> обчислює загальну вартість як <code>quantity * pricePerDroid</code> і повертає рядок, зібраний шаблонним рядком.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- ЗАВДАННЯ 4 ----------
+Станція з продажу ремонтних дроїдів. Оголосити функцію makeTransaction
+з двома параметрами:
+  quantity — кількість замовлених дроїдів,
+  pricePerDroid — вартість одного дроїда.
+Функція повертає рядок:
+&quot;You ordered &lt;quantity&gt; droids worth &lt;totalPrice&gt; credits!&quot;
+де &lt;totalPrice&gt; — загальна вартість усіх замовлених дроїдів.
+*/
+
+function makeTransaction(quantity, pricePerDroid) {
+  const totalPrice = quantity * pricePerDroid;
+  return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+}
+
+function task4() {
+  console.log(makeTransaction(5, 3000));  // You ordered 5 droids worth 15000 credits!
+  console.log(makeTransaction(3, 1000));  // You ordered 3 droids worth 3000 credits!
+  console.log(makeTransaction(10, 500));  // You ordered 10 droids worth 5000 credits!
+}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task4.png" alt="Console, завдання 4"><figcaption>Рис. 4. Результати викликів makeTransaction (завдання 4)</figcaption></figure></section>
+<section id="task5"><h3>ЗАВДАННЯ №5</h3><p>Функція <code>checkForSpam</code> переводить повідомлення в нижній регістр методом <code>toLowerCase()</code> і шукає слова <code>spam</code> та <code>sale</code> методом <code>includes()</code>; повертає <code>true</code> або <code>false</code>.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- ЗАВДАННЯ 5 ----------
+Функція checkForSpam(message) приймає рядок, перевіряє його на вміст
+заборонених слів spam і sale, і повертає результат перевірки.
+Слова можуть бути в довільному регістрі (SPAM, sAlE).
+Якщо знайдено заборонене слово — повертає true, інакше — false.
+*/
+
+function checkForSpam(message) {
+  const normalizedMessage = message.toLowerCase();
+  return normalizedMessage.includes(&quot;spam&quot;) || normalizedMessage.includes(&quot;sale&quot;);
+}
+
+function task5() {
+  console.log(checkForSpam(&quot;Latest technology news&quot;));         // false
+  console.log(checkForSpam(&quot;JavaScript weekly newsletter&quot;));   // false
+  console.log(checkForSpam(&quot;Get best sale offers now!&quot;));      // true
+  console.log(checkForSpam(&quot;[SPAM] How to earn fast money?&quot;)); // true
+  console.log(checkForSpam(&quot;sAlE starts today&quot;));              // true
+}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task5.png" alt="Console, завдання 5"><figcaption>Рис. 5. Результати викликів checkForSpam (завдання 5)</figcaption></figure></section>
+<section id="task6"><h3>ЗАВДАННЯ №6</h3><p>Функція <code>filterArray</code> створює порожній масив, проходить цикл <code>for</code> по <code>numbers</code>, за допомогою <code>if</code> відбирає числа, більші за <code>value</code>, додає їх методом <code>push()</code> і повертає новий масив.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- ЗАВДАННЯ 6 ----------
+Написати функцію filterArray(numbers, value), яка приймає масив чисел
+і значення. Повертає новий масив лише тих чисел, які більші за value.
+Усередині функції:
+  - створити порожній масив для підходящих чисел;
+  - цикл для ітерації кожного елемента numbers;
+  - if усередині циклу для перевірки та додавання до свого масиву;
+  - повернути свій новий масив.
+*/
+
+function filterArray(numbers, value) {
+  const filtered = [];
+
+  for (let i = 0; i &lt; numbers.length; i++) {
+    if (numbers[i] &gt; value) {
+      filtered.push(numbers[i]);
+    }
+  }
+
+  return filtered;
+}
+
+function task6() {
+  console.log(filterArray([1, 2, 3, 4, 5], 3));       // [4, 5]
+  console.log(filterArray([1, 2, 3, 4, 5], 4));       // [5]
+  console.log(filterArray([1, 2, 3, 4, 5], 5));       // []
+  console.log(filterArray([12, 24, 8, 41, 76], 38));  // [41, 76]
+  console.log(filterArray([12, 24, 8, 41, 76], 20));  // [24, 41, 76]
+}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task6.png" alt="Console, завдання 6"><figcaption>Рис. 6. Результати викликів filterArray (завдання 6)</figcaption></figure></section>
+<section id="task7"><h3>ЗАВДАННЯ №7</h3><p>Варіант 3. Розмір масиву A задає користувач, елементи генеруються випадково. Масив B будується за формулою <code>b[i] = max * a[i]</code>, де <code>max</code> знаходить окрема функція. Далі B сортується методом вставки за зменшенням. Кожен крок винесено в окрему функцію.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- ЗАВДАННЯ 7 (варіант 3) ----------
+1. Заданий одновимірний масив A, кількість елементів задана
+   користувачем. Побудувати масив B, кожний елемент якого обчислюється
+   за формулою b[i] = max * a[i], де max — максимальний елемент
+   масиву A. Надрукувати вхідний та вихідний масиви.
+   Застосувати функції.
+2. Виконати сортування вихідного масиву за зменшенням
+   методом вставки. Застосувати функції.
+*/
+
+// Запитує кількість елементів; повертає ціле число &gt; 0 або null
+function readArraySize() {
+  const input = prompt(&quot;Введіть кількість елементів масиву A:&quot;);
+  if (input === null || input.trim() === &quot;&quot;) {
+    return null;
+  }
+  const size = Number(input);
+  if (!Number.isInteger(size) || size &lt;= 0) {
+    return null;
+  }
+  return size;
+}
+
+// Масив випадкових цілих чисел у діапазоні [min, max]
+function generateArray(size, min, max) {
+  const arr = [];
+  for (let i = 0; i &lt; size; i++) {
+    arr.push(Math.floor(Math.random() * (max - min + 1)) + min);
+  }
+  return arr;
+}
+
+// Максимальний елемент масиву
+function findMax(arr) {
+  let max = arr[0];
+  for (let i = 1; i &lt; arr.length; i++) {
+    if (arr[i] &gt; max) {
+      max = arr[i];
+    }
+  }
+  return max;
+}
+
+// Будує масив B: b[i] = max * a[i]
+function buildArrayB(arrA) {
+  const max = findMax(arrA);
+  const arrB = [];
+  for (let i = 0; i &lt; arrA.length; i++) {
+    arrB.push(max * arrA[i]);
+  }
+  return arrB;
+}
+
+// Сортування вставкою за зменшенням (повертає новий масив)
+function insertionSortDesc(arr) {
+  const sorted = [...arr];
+  for (let i = 1; i &lt; sorted.length; i++) {
+    const current = sorted[i];
+    let j = i - 1;
+    while (j &gt;= 0 &amp;&amp; sorted[j] &lt; current) {
+      sorted[j + 1] = sorted[j];
+      j--;
+    }
+    sorted[j + 1] = current;
+  }
+  return sorted;
+}
+
+function task7() {
+  const size = readArraySize();
+  if (size === null) {
+    alert(&quot;Потрібно ввести ціле число більше нуля&quot;);
+    return;
+  }
+
+  const arrA = generateArray(size, -10, 20);
+  const arrB = buildArrayB(arrA);
+  const sortedB = insertionSortDesc(arrB);
+
+  console.log(`Масив A: [${arrA.join(&quot;, &quot;)}]`);
+  console.log(`max(A) = ${findMax(arrA)}`);
+  console.log(`Масив B (b[i] = max * a[i]): [${arrB.join(&quot;, &quot;)}]`);
+  console.log(`Масив B після сортування вставкою за зменшенням: [${sortedB.join(&quot;, &quot;)}]`);
+}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task7.png" alt="Console, завдання 7"><figcaption>Рис. 7. Масиви A, B та відсортований B у Console (завдання 7)</figcaption></figure></section>
+<section id="task8"><h3>ЗАВДАННЯ №8</h3><p>Двовимірний масив 4×4 заповнюється випадковими ненульовими числами та виводиться через <code>console.table()</code>. Числа розкладаються на масив додатних і масив від'ємних. Третій елемент додатного масиву замінюється на від'ємне число, введене через <code>prompt()</code>.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- ЗАВДАННЯ 8 ----------
+Є двовимірний масив додатних і від&#x27;ємних чисел (оголосити,
+проініціалізувати генератором випадкових чисел). Вивести у Console.
+Створити два масиви: масив додатних чисел і масив від&#x27;ємних чисел.
+Третій елемент у додатному масиві замінити на від&#x27;ємне значення,
+яке буде введено за допомогою prompt. Вивести у Console.
+*/
+
+// Матриця rows x cols з ненульових випадкових чисел від -50 до 50
+function generateMatrix(rows, cols) {
+  const matrix = [];
+  for (let i = 0; i &lt; rows; i++) {
+    const row = [];
+    for (let j = 0; j &lt; cols; j++) {
+      let n = 0;
+      while (n === 0) {
+        n = Math.floor(Math.random() * 101) - 50;
+      }
+      row.push(n);
+    }
+    matrix.push(row);
+  }
+  return matrix;
+}
+
+// Розкладає матрицю на масив додатних та масив від&#x27;ємних чисел
+function splitByPolarity(matrix) {
+  const positives = [];
+  const negatives = [];
+  for (let i = 0; i &lt; matrix.length; i++) {
+    for (let j = 0; j &lt; matrix[i].length; j++) {
+      if (matrix[i][j] &gt; 0) {
+        positives.push(matrix[i][j]);
+      } else {
+        negatives.push(matrix[i][j]);
+      }
+    }
+  }
+  return { positives, negatives };
+}
+
+function task8() {
+  const matrix = generateMatrix(4, 4);
+  console.log(&quot;Двовимірний масив:&quot;);
+  console.table(matrix);
+
+  const { positives, negatives } = splitByPolarity(matrix);
+  console.log(`Додатні числа: [${positives.join(&quot;, &quot;)}]`);
+  console.log(`Від&#x27;ємні числа: [${negatives.join(&quot;, &quot;)}]`);
+
+  if (positives.length &lt; 3) {
+    alert(&quot;У масиві менше трьох додатних чисел — натисніть кнопку ще раз&quot;);
+    return;
+  }
+
+  const input = prompt(&quot;Введіть від&#x27;ємне число для заміни третього додатного елемента:&quot;);
+  if (input === null || input.trim() === &quot;&quot;) {
+    alert(&quot;Cancelled&quot;);
+    return;
+  }
+
+  const newValue = Number(input);
+  if (Number.isNaN(newValue) || newValue &gt;= 0) {
+    alert(&quot;Потрібно ввести від&#x27;ємне число&quot;);
+    return;
+  }
+
+  positives[2] = newValue;
+  console.log(`Додатний масив після заміни третього елемента: [${positives.join(&quot;, &quot;)}]`);
+}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task8.png" alt="Console, завдання 8"><figcaption>Рис. 8. Матриця, масиви та заміна третього елемента (завдання 8)</figcaption></figure></section>
+<section id="task9"><h3>ЗАВДАННЯ №9. Калькулятор (варіант 3)</h3><p>Калькулятор виконано окремою сторінкою <code>calculator.html</code>. Підтримуються операції <code>+</code>, <code>−</code>, <code>×</code>, <code>÷</code>, <code>%</code> (остача від ділення), квадратний корінь та піднесення до степеня <code>x<sup>y</sup></code>; кнопки цифр і знаків операцій розміщено в інтерфейсі. Ділення на нуль і корінь із від'ємного числа дають повідомлення «Помилка».</p><p><b>calculator.html</b></p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;uk&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Калькулятор — ЛР №4, завдання 9&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main class=&quot;calc-page&quot;&gt;
+    &lt;h1&gt;Калькулятор&lt;/h1&gt;
+
+    &lt;div class=&quot;calc&quot; id=&quot;calc&quot;&gt;
+      &lt;div class=&quot;calc-screen&quot;&gt;
+        &lt;div class=&quot;calc-expression&quot; id=&quot;expression&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;calc-display&quot; id=&quot;display&quot;&gt;0&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;calc-keys&quot;&gt;
+        &lt;button data-action=&quot;clear&quot; class=&quot;fn&quot;&gt;C&lt;/button&gt;
+        &lt;button data-action=&quot;backspace&quot; class=&quot;fn&quot;&gt;⌫&lt;/button&gt;
+        &lt;button data-action=&quot;sqrt&quot; class=&quot;fn&quot;&gt;√&lt;/button&gt;
+        &lt;button data-action=&quot;operator&quot; data-value=&quot;^&quot; class=&quot;op&quot;&gt;xʸ&lt;/button&gt;
+
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;7&quot;&gt;7&lt;/button&gt;
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;8&quot;&gt;8&lt;/button&gt;
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;9&quot;&gt;9&lt;/button&gt;
+        &lt;button data-action=&quot;operator&quot; data-value=&quot;/&quot; class=&quot;op&quot;&gt;÷&lt;/button&gt;
+
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;4&quot;&gt;4&lt;/button&gt;
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;5&quot;&gt;5&lt;/button&gt;
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;6&quot;&gt;6&lt;/button&gt;
+        &lt;button data-action=&quot;operator&quot; data-value=&quot;*&quot; class=&quot;op&quot;&gt;×&lt;/button&gt;
+
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;1&quot;&gt;1&lt;/button&gt;
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;2&quot;&gt;2&lt;/button&gt;
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;3&quot;&gt;3&lt;/button&gt;
+        &lt;button data-action=&quot;operator&quot; data-value=&quot;-&quot; class=&quot;op&quot;&gt;−&lt;/button&gt;
+
+        &lt;button data-action=&quot;digit&quot; data-value=&quot;0&quot;&gt;0&lt;/button&gt;
+        &lt;button data-action=&quot;dot&quot;&gt;.&lt;/button&gt;
+        &lt;button data-action=&quot;operator&quot; data-value=&quot;%&quot; class=&quot;op&quot;&gt;%&lt;/button&gt;
+        &lt;button data-action=&quot;operator&quot; data-value=&quot;+&quot; class=&quot;op&quot;&gt;+&lt;/button&gt;
+
+        &lt;button data-action=&quot;sign&quot; class=&quot;fn&quot;&gt;±&lt;/button&gt;
+        &lt;button data-action=&quot;equals&quot; class=&quot;eq&quot;&gt;=&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;&lt;a href=&quot;index.html&quot;&gt;← До завдань 1–8&lt;/a&gt;&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/calculator.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p><b>js/calculator.js</b></p><pre><code>/* ---------- ЗАВДАННЯ 9 (варіант 3) ----------
+Калькулятор мовою JavaScript.
+Обов&#x27;язкові операції: +, -, *, /, %, корінь квадратний, x^y.
+Кнопки з цифрами та знаками операцій мають бути доступні в інтерфейсі.
+*/
+
+const displayEl = document.getElementById(&quot;display&quot;);
+const expressionEl = document.getElementById(&quot;expression&quot;);
+
+const SYMBOLS = { &quot;+&quot;: &quot;+&quot;, &quot;-&quot;: &quot;−&quot;, &quot;*&quot;: &quot;×&quot;, &quot;/&quot;: &quot;÷&quot;, &quot;%&quot;: &quot;mod&quot;, &quot;^&quot;: &quot;^&quot; };
+
+let current = &quot;0&quot;;     // число, яке зараз на екрані
+let previous = null;   // перший операнд
+let operator = null;   // обрана операція
+let waiting = false;   // true — наступна цифра починає нове число
+let hasError = false;
+
+function format(n) {
+  return String(parseFloat(n.toPrecision(12)));
+}
+
+function render() {
+  displayEl.textContent = current;
+  expressionEl.textContent =
+    previous !== null &amp;&amp; operator ? `${format(previous)} ${SYMBOLS[operator]}` : &quot;&quot;;
+}
+
+function setError() {
+  current = &quot;Помилка&quot;;
+  previous = null;
+  operator = null;
+  hasError = true;
+  waiting = true;
+}
+
+function compute(a, b, op) {
+  switch (op) {
+    case &quot;+&quot;: return a + b;
+    case &quot;-&quot;: return a - b;
+    case &quot;*&quot;: return a * b;
+    case &quot;/&quot;: return b === 0 ? NaN : a / b;
+    case &quot;%&quot;: return b === 0 ? NaN : a % b;
+    case &quot;^&quot;: return Math.pow(a, b);
+    default: return NaN;
+  }
+}
+
+function clearAll() {
+  current = &quot;0&quot;;
+  previous = null;
+  operator = null;
+  waiting = false;
+  hasError = false;
+}
+
+function inputDigit(d) {
+  if (hasError) clearAll();
+  if (waiting) {
+    current = d;
+    waiting = false;
+  } else {
+    current = current === &quot;0&quot; ? d : current + d;
+  }
+}
+
+function inputDot() {
+  if (hasError) clearAll();
+  if (waiting) {
+    current = &quot;0.&quot;;
+    waiting = false;
+  } else if (!current.includes(&quot;.&quot;)) {
+    current += &quot;.&quot;;
+  }
+}
+
+function chooseOperator(op) {
+  if (hasError) return;
+  const value = parseFloat(current);
+
+  if (operator &amp;&amp; !waiting) {
+    // ланцюжок операцій: 2 + 3 × ... → спочатку рахуємо 2 + 3
+    const res = compute(previous, value, operator);
+    if (!Number.isFinite(res)) return setError();
+    previous = res;
+    current = format(res);
+  } else if (!operator) {
+    previous = value;
+  }
+
+  operator = op;
+  waiting = true;
+}
+
+function equals() {
+  if (hasError || operator === null) return;
+  const res = compute(previous, parseFloat(current), operator);
+  if (!Number.isFinite(res)) return setError();
+  current = format(res);
+  previous = null;
+  operator = null;
+  waiting = true;
+}
+
+function squareRoot() {
+  if (hasError) return;
+  const value = parseFloat(current);
+  if (value &lt; 0) return setError();
+  current = format(Math.sqrt(value));
+  waiting = true;
+}
+
+function toggleSign() {
+  if (hasError || current === &quot;0&quot;) return;
+  current = current.startsWith(&quot;-&quot;) ? current.slice(1) : &quot;-&quot; + current;
+}
+
+function backspace() {
+  if (hasError || waiting) return;
+  const isSingle = current.length === 1 || (current.length === 2 &amp;&amp; current.startsWith(&quot;-&quot;));
+  current = isSingle ? &quot;0&quot; : current.slice(0, -1);
+}
+
+document.getElementById(&quot;calc&quot;).addEventListener(&quot;click&quot;, (event) =&gt; {
+  const btn = event.target.closest(&quot;button&quot;);
+  if (!btn) return;
+
+  const { action, value } = btn.dataset;
+  switch (action) {
+    case &quot;digit&quot;: inputDigit(value); break;
+    case &quot;dot&quot;: inputDot(); break;
+    case &quot;operator&quot;: chooseOperator(value); break;
+    case &quot;equals&quot;: equals(); break;
+    case &quot;sqrt&quot;: squareRoot(); break;
+    case &quot;sign&quot;: toggleSign(); break;
+    case &quot;backspace&quot;: backspace(); break;
+    case &quot;clear&quot;: clearAll(); break;
+  }
+  render();
+});
+
+render();</code></pre><p><b>CSS калькулятора (style.css)</b></p><pre><code>/* ---------- Калькулятор (завдання 9) ---------- */
+.calc {
+  max-width: 20rem;
+  padding: 1rem;
+  border: 1px solid #c9c9c9;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.calc-screen {
+  min-height: 4.5rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  text-align: right;
+  border-radius: 0.5rem;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.calc-expression {
+  min-height: 1.25rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.calc-display {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.calc-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.calc-keys button {
+  padding: 0.8rem 0;
+  font: inherit;
+  font-size: 1.1rem;
+  border: 1px solid #c9c9c9;
+  border-radius: 0.5rem;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.calc-keys button:hover { background: #eee; }
+.calc-keys button:focus-visible { outline: 2px solid #2a6fdb; outline-offset: 2px; }
+.calc-keys .op { background: #e6eefc; }
+.calc-keys .fn { background: #f3f0e6; }
+.calc-keys .eq { grid-column: span 3; background: #2a6fdb; color: #fff; border-color: #2a6fdb; }
+.calc-keys .eq:hover { background: #1f5bb8; }</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab4-task9.png" alt="Калькулятор"><figcaption>Рис. 9. Калькулятор (завдання 9)</figcaption></figure></section>
+<section id="task10"><h3>ЗАВДАННЯ №10. Вікно авторизації у власному WEB-застосунку</h3><p>У застосунок TechStore додано модальне вікно авторизації на елементі <code>&lt;dialog&gt;</code>. Скрипт <code>auth.js</code> будує вікно сам і перевіряє введені дані: email має відповідати формату <code>name@example.com</code>, пароль — містити щонайменше 8 символів, хоча б одну літеру й одну цифру та не містити пробілів. Помилки показуються під відповідним полем, невалідне поле підсвічується, є перемикач видимості пароля. Тими самими правилами перевіряється й форма реєстрації в сайдбарі.</p><p><b>Зміни в index.html:</b></p><pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/auth.css&quot;&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;header-link&quot; data-open-login&gt;Увійти&lt;/a&gt;
+
+&lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;</code></pre><p><b>js/auth.js</b></p><pre><code>/* ---------- ЗАВДАННЯ 10 ----------
+У власному вебзастосунку створити вікно авторизації з перевіркою
+на валідність введених даних.
+
+Підключення до сторінки:
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;auth.css&quot;&gt;
+  &lt;button data-open-login&gt;Увійти&lt;/button&gt;
+  &lt;script src=&quot;auth.js&quot;&gt;&lt;/script&gt;
+Вікно будується скриптом само, окремої розмітки в HTML не потрібно.
+*/
+
+(function () {
+  // #validators-start
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function validateEmail(value) {
+    const email = value.trim();
+    if (email === &quot;&quot;) return &quot;Введіть email&quot;;
+    if (!EMAIL_RE.test(email)) return &quot;Некоректний email. Приклад: name@example.com&quot;;
+    return &quot;&quot;;
+  }
+
+  function validatePassword(value) {
+    if (value === &quot;&quot;) return &quot;Введіть пароль&quot;;
+    if (/\s/.test(value)) return &quot;Пароль не може містити пробіли&quot;;
+    if (value.length &lt; 8) return &quot;Пароль має містити щонайменше 8 символів&quot;;
+    if (!/[A-Za-zА-Яа-яІіЇїЄєҐґ]/.test(value)) return &quot;Додайте хоча б одну літеру&quot;;
+    if (!/\d/.test(value)) return &quot;Додайте хоча б одну цифру&quot;;
+    return &quot;&quot;;
+  }
+  // #validators-end
+
+  const TEMPLATE = `
+    &lt;dialog class=&quot;auth-dialog&quot; aria-labelledby=&quot;auth-title&quot;&gt;
+      &lt;form class=&quot;auth-form&quot; novalidate&gt;
+        &lt;div class=&quot;auth-head&quot;&gt;
+          &lt;h2 id=&quot;auth-title&quot;&gt;Вхід до акаунта&lt;/h2&gt;
+          &lt;button type=&quot;button&quot; class=&quot;auth-close&quot; aria-label=&quot;Закрити&quot;&gt;×&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;auth-field&quot;&gt;
+          &lt;label for=&quot;auth-email&quot;&gt;Email&lt;/label&gt;
+          &lt;input id=&quot;auth-email&quot; name=&quot;email&quot; type=&quot;email&quot; autocomplete=&quot;username&quot;
+                 placeholder=&quot;name@example.com&quot; aria-describedby=&quot;auth-email-error&quot;&gt;
+          &lt;p class=&quot;auth-error&quot; id=&quot;auth-email-error&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;auth-field&quot;&gt;
+          &lt;label for=&quot;auth-password&quot;&gt;Пароль&lt;/label&gt;
+          &lt;div class=&quot;auth-pass&quot;&gt;
+            &lt;input id=&quot;auth-password&quot; name=&quot;password&quot; type=&quot;password&quot;
+                   autocomplete=&quot;current-password&quot; aria-describedby=&quot;auth-password-error&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;auth-toggle&quot; aria-pressed=&quot;false&quot;&gt;Показати&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;auth-error&quot; id=&quot;auth-password-error&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;label class=&quot;auth-remember&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;remember&quot;&gt; Запам’ятати мене
+        &lt;/label&gt;
+
+        &lt;button type=&quot;submit&quot; class=&quot;auth-submit&quot;&gt;Увійти&lt;/button&gt;
+        &lt;p class=&quot;auth-status&quot; role=&quot;status&quot;&gt;&lt;/p&gt;
+      &lt;/form&gt;
+    &lt;/dialog&gt;`;
+
+  document.body.insertAdjacentHTML(&quot;beforeend&quot;, TEMPLATE);
+
+  const dialog = document.querySelector(&quot;.auth-dialog&quot;);
+  const form = dialog.querySelector(&quot;.auth-form&quot;);
+  const status = dialog.querySelector(&quot;.auth-status&quot;);
+  const passInput = form.elements.password;
+
+  const fields = [
+    { input: form.elements.email, error: dialog.querySelector(&quot;#auth-email-error&quot;), validate: validateEmail, touched: false },
+    { input: passInput, error: dialog.querySelector(&quot;#auth-password-error&quot;), validate: validatePassword, touched: false },
+  ];
+
+  function check(field) {
+    const message = field.validate(field.input.value);
+    field.error.textContent = message;
+    field.input.setAttribute(&quot;aria-invalid&quot;, message ? &quot;true&quot; : &quot;false&quot;);
+    return message === &quot;&quot;;
+  }
+
+  fields.forEach((field) =&gt; {
+    field.input.addEventListener(&quot;blur&quot;, () =&gt; {
+      field.touched = true;
+      check(field);
+    });
+    field.input.addEventListener(&quot;input&quot;, () =&gt; {
+      if (field.touched) check(field);
+      status.textContent = &quot;&quot;;
+    });
+  });
+
+  form.addEventListener(&quot;submit&quot;, (event) =&gt; {
+    event.preventDefault();
+    const results = fields.map((field) =&gt; {
+      field.touched = true;
+      return check(field);
+    });
+
+    const firstInvalid = fields[results.indexOf(false)];
+    if (firstInvalid) {
+      firstInvalid.input.focus();
+      status.textContent = &quot;&quot;;
+      return;
+    }
+
+    status.textContent = &quot;Вхід виконано. Дані коректні (демо, без сервера).&quot;;
+    status.classList.add(&quot;auth-status--ok&quot;);
+    console.log(`Вхід: ${form.elements.email.value.trim()}`);
+    setTimeout(() =&gt; dialog.close(), 1200);
+  });
+
+  dialog.querySelector(&quot;.auth-toggle&quot;).addEventListener(&quot;click&quot;, (event) =&gt; {
+    const show = passInput.type === &quot;password&quot;;
+    passInput.type = show ? &quot;text&quot; : &quot;password&quot;;
+    event.currentTarget.textContent = show ? &quot;Сховати&quot; : &quot;Показати&quot;;
+    event.currentTarget.setAttribute(&quot;aria-pressed&quot;, String(show));
+  });
+
+  dialog.querySelector(&quot;.auth-close&quot;).addEventListener(&quot;click&quot;, () =&gt; dialog.close());
+
+  // Клік по затемненню (поза формою) закриває вікно
+  dialog.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.target === dialog) dialog.close();
+  });
+
+  document.querySelectorAll(&quot;[data-open-login]&quot;).forEach((button) =&gt; {
+    button.addEventListener(&quot;click&quot;, (event) =&gt; {
+      event.preventDefault(); // для &lt;a href=&quot;#&quot;&gt;, щоб сторінка не стрибала вгору
+      form.reset();
+      status.textContent = &quot;&quot;;
+      status.classList.remove(&quot;auth-status--ok&quot;);
+      fields.forEach((field) =&gt; {
+        field.touched = false;
+        field.error.textContent = &quot;&quot;;
+        field.input.setAttribute(&quot;aria-invalid&quot;, &quot;false&quot;);
+      });
+      dialog.showModal();
+      fields[0].input.focus();
+    });
+  });
+
+  // Форма реєстрації в сайдбарі. Live Server не вміє приймати POST (помилка 405),
+  // тому відправку перехоплюємо й перевіряємо тими самими правилами.
+  const registerForm = document.getElementById(&quot;register-form&quot;);
+  if (registerForm) {
+    const regEmail = registerForm.elements.email;
+    const regPassword = registerForm.elements.password;
+
+    [regEmail, regPassword].forEach((input) =&gt; {
+      input.addEventListener(&quot;input&quot;, () =&gt; input.setCustomValidity(&quot;&quot;));
+    });
+
+    registerForm.addEventListener(&quot;submit&quot;, (event) =&gt; {
+      event.preventDefault();
+      regEmail.setCustomValidity(validateEmail(regEmail.value));
+      regPassword.setCustomValidity(validatePassword(regPassword.value));
+      if (!registerForm.reportValidity()) return;
+
+      alert(`Реєстрація успішна (демо, без сервера): ${regEmail.value.trim()}`);
+      registerForm.reset();
+    });
+  }
+})();</code></pre><p><b>css/auth.css</b></p><pre><code>/* Вікно авторизації TechStore (завдання 10).
+   Підключати ПІСЛЯ style.css. Селектори з префіксом .auth-dialog
+   мають вищу специфічність, ніж загальні правила сайту. */
+
+.auth-dialog {
+  width: min(24rem, 92vw);
+  margin: auto; /* без цього * { margin: 0 } притискає вікно до кута */
+  padding: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.auth-dialog::backdrop { background: rgba(44, 62, 80, 0.6); }
+
+.auth-dialog .auth-form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.auth-dialog .auth-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #3498db;
+}
+
+.auth-dialog .auth-head h2 { font-size: 1.3rem; color: #2c3e50; }
+
+.auth-dialog .auth-close {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #2c3e50;
+  cursor: pointer;
+}
+.auth-dialog .auth-close:hover { background: #ecf0f1; }
+
+.auth-dialog .auth-field label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.auth-dialog .auth-field input {
+  width: 100%;
+  margin: 0;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.auth-dialog .auth-field input:focus { border-color: #3498db; }
+.auth-dialog .auth-field input[aria-invalid=&quot;true&quot;] { border-color: #c0392b; }
+
+.auth-dialog .auth-pass { display: flex; gap: 0.5rem; }
+.auth-dialog .auth-pass input { flex: 1; min-width: 0; }
+
+.auth-dialog .auth-toggle {
+  flex: none;
+  padding: 0 0.75rem;
+  font: inherit;
+  font-size: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+.auth-dialog .auth-toggle:hover { background: #ecf0f1; }
+
+.auth-dialog .auth-error {
+  min-height: 1.1rem;
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #c0392b;
+}
+
+.auth-dialog .auth-remember {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-dialog .auth-submit {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  background: #2c3e50;
+  color: #fff;
+  cursor: pointer;
+}
+.auth-dialog .auth-submit:hover { background: #34495e; }
+
+.auth-dialog .auth-status {
+  min-height: 1.1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.auth-dialog .auth-status--ok { color: #1b6e3c; }
+
+.auth-dialog :focus-visible { outline: 2px solid #3498db; outline-offset: 2px; }</code></pre><figure><img class="screenshot" src="img/lab4-task10-invalid.png" alt="Вікно авторизації з помилками"><figcaption>Рис. 10. Вікно авторизації: повідомлення про невалідні дані</figcaption></figure><figure><img class="screenshot" src="img/lab4-task10-ok.png" alt="Вікно авторизації, успішний вхід"><figcaption>Рис. 11. Вікно авторизації: коректні дані</figcaption></figure></section>
+<section id="topic-end"><h3>ВИСНОВКИ</h3>
+<p>Під час виконання лабораторної роботи було набуто практичних навичок роботи з мовою JavaScript у HTML-документі. Підключено окремий скрипт тегом <code>&lt;script&gt;</code>, використано введення й виведення через <code>prompt()</code>, <code>alert()</code> та <code>console.log()</code>.</p>
+<p>Опановано шаблонні рядки (зворотні лапки та підстановка <code>${}</code>), умовні конструкції <code>if / else if / else</code> і <code>switch-case</code>, а також перевірки введених даних: Cancel повертає <code>null</code>, <code>prompt()</code> завжди повертає рядок, а <code>Number("")</code> дає 0, тому такі випадки потрібно відсікати окремо.</p>
+<p>Створено функції з параметрами та поверненням значення (<code>makeTransaction</code>, <code>checkForSpam</code>, <code>filterArray</code>) і виконано роботу з масивами: цикли, <code>push()</code>, <code>includes()</code>, <code>toLowerCase()</code>, двовимірні масиви, генерація випадкових чисел, сортування вставкою. Розв'язання задач, розбите на невеликі функції, виявилося зручнішим для перевірки та повторного використання.</p>
+<p>На практиці реалізовано калькулятор з обробкою подій кнопок та вікно авторизації з валідацією введених даних у власному застосунку. Побачено, що валідацію на боці браузера потрібно доповнювати перевіркою на сервері, бо без бекенду форми лише перевіряють коректність даних, але не зберігають їх.</p></section>
+        </div>
+    </div>
+</body>
+</html>
