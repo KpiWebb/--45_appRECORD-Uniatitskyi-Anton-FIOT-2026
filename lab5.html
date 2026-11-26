@@ -4,113 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Звіт з лабораторної роботи №5</title>
-    <style>
-        body { font-family: 'Times New Roman', serif; margin: 0; padding: 15px; }
-        .header { text-align: center; margin-bottom: 20px; position: relative; }
-        .photo-box { position: absolute; top: 0; right: 20px; width: 100px; height: 130px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; overflow: hidden; }
-        .photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .nav-horizontal { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-        .nav-horizontal a { padding: 15px 10px; border: 1px solid #000; border-radius: 10px; text-decoration: none; color: #000; font-size: 14px; text-align: center; }
-        .nav-horizontal a.active { background-color: #ffff99; font-weight: bold; }
-        .layout { display: flex; gap: 20px; }
-        .sidebar { width: 280px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
-        .sidebar a { padding: 15px; border: 1px solid #000; border-radius: 25px; text-decoration: none; color: #000; font-size: 14px; text-align: center; background: #fff; }
-        .main-content { flex-grow: 1; min-width: 0; border: 2px solid #000; padding: 20px; height: 70vh; overflow-y: auto; }
-        section { border-bottom: 1px dashed #ccc; padding-bottom: 30px; margin-bottom: 30px; }
-        pre { background: #f4f4f4; padding: 10px; border-left: 4px solid #333; overflow-x: auto; font-family: monospace; font-size: 13px; }
-        .screenshot { max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0; display: block; }
-        figure { margin: 10px 0; }
-        figcaption { font-size: 14px; font-style: italic; }
-        .variant { border-collapse: collapse; margin-top: 10px; }
-        .variant th, .variant td { border: 1px solid #333; padding: 6px 12px; text-align: left; }
-
-        @media screen and (max-width: 992px) {
-            .layout { flex-direction: column; }
-            .sidebar { width: auto; flex-direction: row; flex-wrap: wrap; }
-            .sidebar a { flex: 1 1 14rem; border-radius: 15px; }
-            .main-content { height: auto; }
-        }
-        @media screen and (max-width: 640px) {
-            body { padding: 8px; }
-            .header h3 { font-size: 1rem; }
-            .photo-box { position: static; margin: 0 auto 10px; }
-            .nav-horizontal a { padding: 8px 6px; font-size: 12px; }
-            .main-content { padding: 10px; }
-        }
-        @media not print {
-            .sidebar a { transition: background 0.2s; }
-            .sidebar a:hover { background: #ffff99; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/report.css">
+    <script src="js/report-shell.js" defer></script>
 </head>
-<body>
+<body data-lab="5">
 
-    <div class="header">
-        <h3>З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. FRONTEND РОЗРОБКИ»</h3>
-        <p><b>Студент групи ІО-45 Унятицький Антон</b></p>
-        <div class="photo-box">
-            <img src="img/student.jpg" alt="Фото студента">
-        </div>
-    </div>
+    <header id="report-header"></header>
+    <nav id="labs-nav" aria-label="Навігація по лабораторних роботах"></nav>
 
-    <div class="nav-horizontal">
-<a href="index.html">Лабораторна<br>робота №1</a>
-<a href="lab2.html">Лабораторна<br>робота №2</a>
-<a href="lab3.html">Лабораторна<br>робота №3</a>
-<a href="lab4.html">Лабораторна<br>робота №4</a>
-<a href="lab5.html" class="active">Лабораторна<br>робота №5</a>
-<a href="#">Лабораторна<br>робота №6</a>
-<a href="#">Лабораторна<br>робота №7</a>
-<a href="#">Лабораторна<br>робота №8</a>
-<a href="#">Лабораторна<br>робота №9</a>
-    </div>
+    <div class="report-layout">
+        <aside id="sidebar" class="sidebar" aria-label="Зміст звіту"></aside>
 
-    <div class="layout">
-        <div class="sidebar">
-<a href="#topic1">Тема, Мета. Місце розташування сайту, звіту</a>
-<a href="#object">Об'єкт</a>
-<a href="#methods">Методи об'єкта</a>
-<a href="#array">Масив об'єктів</a>
-<a href="#destruct">Деструктуризація об'єктів</a>
-<a href="#callback">Callback-функції</a>
-<a href="#arrow">Стрілочні функції</a>
-<a href="#arrowCb">Стрілочні функції як колбеки</a>
-<a href="#iter">Перебираючі методи масиву</a>
-<a href="#topic-end">ВИСНОВКИ</a>
-        </div>
-
-        <div class="main-content">
+        <main class="main-content">
             <h2 style="text-align:center;">Звіт з Лабораторної роботи №5</h2>
 
-<section id="topic1">
-<h3>Тема, мета. Місце розташування сайту, звіту</h3>
-<p><b>Тема:</b> ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК КОЛБЕКИ. ПЕРЕБИРАЮЧІ МЕТОДИ МАСИВУ</p>
-<p><b>Мета:</b> придбати практичні навички роботи з об'єктами, методами об'єктів, масивами об'єктів, деструктуризацією об'єктів, callback-функціями, стрілочними функціями, стрілочними функціями як колбеками, перебираючими методами масиву.</p>
-<p><b>Репозиторії:</b></p>
-<ul>
-  <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій власного WEB-застосунку</a></li>
-  <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій звітного HTML-документа</a></li>
-  <li><!-- TODO: те саме посилання, що й у ЛР №4 --><a href="https://github.com/KpiWebb/LR_IO-45_Uniatytskyi" target="_blank">Репозиторій WEB-застосунку із завданнями</a></li>
-</ul>
-<p><b>Живі сторінки:</b></p>
-<ul>
-  <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Власний WEB-застосунок (TechStore)</a></li>
-  <li><a href="https://kpiwebb.github.io/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026/lab5.html" target="_blank">Даний звіт (ЛР №5)</a></li>
-  <li><a href="https://kpiwebb.github.io/LR_IO-45_Uniatytskyi/index.html" target="_blank">WEB-застосунок із завданнями</a></li>
-</ul>
-<p>Номер у списку групи — 23, варіант завдань — <b>№3</b>. Усі завдання виконано у файлі <code>js/lesson-5.js</code>, а запускаються кнопками на сторінці <code>index.html</code>; результати виводяться у вкладку Console.</p>
-<table class="variant"><tr><th>Підтема</th><th>Завдання варіанта №3</th></tr>
-<tr><td>Об'єкт</td><td>3, 7</td></tr><tr><td>Методи об'єкта</td><td>3, 10</td></tr><tr><td>Масив об'єктів</td><td>3, 8</td></tr><tr><td>Деструктуризація об'єктів</td><td>3, 7, 10</td></tr><tr><td>Callback-функції</td><td>3, 9</td></tr><tr><td>Стрілочні функції</td><td>3, 6</td></tr><tr><td>Стрілочні функції як колбеки</td><td>3, 5, 8</td></tr><tr><td>Перебираючі методи масиву</td><td>3, 5, 10</td></tr></table></section>
-<section id="object"><h3>Об'єкт</h3><h4>Завдання 3. Об'єкт «Товар»</h4><p>Створено об'єкт <code>product</code> із чотирма властивостями (назва, категорія, ціна, кількість на складі). Доступ до властивостей здійснюється через крапку, а інформація виводиться окремими повідомленнями в Console за допомогою шаблонних рядків.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Об&#x27;єкт. Завдання 3. Об&#x27;єкт «Товар» ----------
-Створіть об&#x27;єкт product, який містить назву товару, категорію, ціну
+            <section id="topic1" data-nav="Тема, Мета. Місце розташування сайту, звіту">
+                <h3>Тема, мета. Місце розташування сайту, звіту</h3>
+                <p><strong>Тема:</strong> ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК КОЛБЕКИ. ПЕРЕБИРАЮЧІ МЕТОДИ МАСИВУ</p>
+                <p><strong>Мета:</strong> придбати практичні навички роботи з об'єктами, методами об'єктів, масивами об'єктів, деструктуризацією об'єктів, callback-функціями, стрілочними функціями, стрілочними функціями як колбеками, перебираючими методами масиву.</p>
+                <p><strong>Репозиторії:</strong></p>
+                <ul>
+                    <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026" target="_blank" rel="noopener noreferrer">Репозиторій власного WEB-застосунку</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026" target="_blank" rel="noopener noreferrer">Репозиторій звітного HTML-документа</a></li>
+                    <li><a href="https://github.com/KpiWebb/LR_IO-45_Uniatytskyi" target="_blank" rel="noopener noreferrer">Репозиторій WEB-застосунку із завданнями</a></li>
+                </ul>
+                <p><strong>Живі сторінки:</strong></p>
+                <ul>
+                    <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/" target="_blank" rel="noopener noreferrer">Власний WEB-застосунок (TechStore)</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026/lab5.html" target="_blank" rel="noopener noreferrer">Даний звіт (ЛР №5)</a></li>
+                    <li><a href="https://kpiwebb.github.io/LR_IO-45_Uniatytskyi/index.html" target="_blank" rel="noopener noreferrer">WEB-застосунок із завданнями</a></li>
+                </ul>
+                <p>Номер у списку групи — 23, варіант завдань — <strong>№3</strong>. Усі завдання виконано у файлі <code>js/lesson-5.js</code>, а запускаються кнопками на сторінці <code>index.html</code>; результати виводяться у вкладку Console.</p>
+                
+                <table class="variant">
+                    <thead>
+                        <tr><th>Підтема</th><th>Завдання варіанта №3</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Об'єкт</td><td>3, 7</td></tr>
+                        <tr><td>Методи об'єкта</td><td>3, 10</td></tr>
+                        <tr><td>Масив об'єктів</td><td>3, 8</td></tr>
+                        <tr><td>Деструктуризація об'єктів</td><td>3, 7, 10</td></tr>
+                        <tr><td>Callback-функції</td><td>3, 9</td></tr>
+                        <tr><td>Стрілочні функції</td><td>3, 6</td></tr>
+                        <tr><td>Стрілочні функції як колбеки</td><td>3, 5, 8</td></tr>
+                        <tr><td>Перебираючі методи масиву</td><td>3, 5, 10</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="object" data-nav="Об'єкт">
+                <h3>Об'єкт</h3>
+                <h4>Завдання 3. Об'єкт «Товар»</h4>
+                <p>Створено об'єкт <code>product</code> із чотирма властивостями (назва, категорія, ціна, кількість на складі). Доступ до властивостей здійснюється через крапку, а інформація виводиться окремими повідомленнями в Console за допомогою шаблонних рядків.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Об'єкт. Завдання 3. Об'єкт «Товар» ----------
+Створіть об'єкт product, який містить назву товару, категорію, ціну
 та кількість одиниць на складі. Виведіть інформацію про товар
 у вигляді окремих повідомлень у консоль.
 */
 
 function object3() {
   const product = {
-    name: &quot;Ноутбук Lenovo ThinkBook 14&quot;,
-    category: &quot;Ноутбуки та ПК&quot;,
+    name: "Ноутбук Lenovo ThinkBook 14",
+    category: "Ноутбуки та ПК",
     price: 32999,
     stock: 12,
   };
@@ -119,92 +76,146 @@ function object3() {
   console.log(`Категорія: ${product.category}`);
   console.log(`Ціна: ${product.price} грн`);
   console.log(`Кількість на складі: ${product.stock} шт.`);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-object3.png" alt="Console: Об'єкт, завдання 3"><figcaption>Рис. 1. Об'єкт · завдання 3</figcaption></figure><h4>Завдання 7. Видалення властивостей об'єкта</h4><p>Створено об'єкт <code>laptop</code> із п'ятьма властивостями. Властивості <code>processor</code> і <code>ram</code> видалено оператором <code>delete</code>. Щоб у Console зберігся стан «до», виведено копію об'єкта, створену оператором розгортання (<code>{ ...laptop }</code>).</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Об&#x27;єкт. Завдання 7. Видалення властивостей об&#x27;єкта ----------
-Створіть об&#x27;єкт laptop із властивостями brand, model, processor, ram,
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-object3.png" alt="Console: Об'єкт, завдання 3">
+                    <figcaption>Рис. 1. Об'єкт · завдання 3</figcaption>
+                </figure>
+
+                <h4>Завдання 7. Видалення властивостей об'єкта</h4>
+                <p>Створено об'єкт <code>laptop</code> із п'ятьма властивостями. Властивості <code>processor</code> і <code>ram</code> видалено оператором <code>delete</code>. Щоб у Console зберігся стан «до», виведено копію об'єкта, створену оператором розгортання (<code>{ ...laptop }</code>).</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Об'єкт. Завдання 7. Видалення властивостей об'єкта ----------
+Створіть об'єкт laptop із властивостями brand, model, processor, ram,
 price. Видаліть властивості processor та ram за допомогою оператора
-delete. Виведіть об&#x27;єкт до та після видалення властивостей.
+delete. Виведіть об'єкт до та після видалення властивостей.
 */
 
 function object7() {
   const laptop = {
-    brand: &quot;Lenovo&quot;,
-    model: &quot;ThinkBook 14&quot;,
-    processor: &quot;Intel Core i7&quot;,
-    ram: &quot;32 GB&quot;,
+    brand: "Lenovo",
+    model: "ThinkBook 14",
+    processor: "Intel Core i7",
+    ram: "32 GB",
     price: 32999,
   };
 
-  console.log(&quot;Об&#x27;єкт до видалення:&quot;, { ...laptop }); // копія, щоб зберегти стан «до»
+  console.log("Об'єкт до видалення:", { ...laptop }); // копія, щоб зберегти стан «до»
 
   delete laptop.processor;
   delete laptop.ram;
 
-  console.log(&quot;Об&#x27;єкт після видалення:&quot;, laptop);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-object7.png" alt="Console: Об'єкт, завдання 7"><figcaption>Рис. 2. Об'єкт · завдання 7</figcaption></figure></section>
-<section id="methods"><h3>Методи об'єкта</h3><h4>Завдання 3. Отримання пар «ключ — значення»</h4><p>Метод <code>Object.entries()</code> повертає масив пар «ключ — значення». Масив виведено в Console, а потім перебрано методом <code>forEach()</code> із деструктуризацією пари у змінні <code>key</code> і <code>value</code>.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Методи об&#x27;єкта. Завдання 3. Отримання пар «ключ — значення» ----------
-Створіть об&#x27;єкт car із властивостями brand, model, year, color.
+  console.log("Об'єкт після видалення:", laptop);
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-object7.png" alt="Console: Об'єкт, завдання 7">
+                    <figcaption>Рис. 2. Об'єкт · завдання 7</figcaption>
+                </figure>
+            </section>
+
+            <section id="methods" data-nav="Методи об'єкта">
+                <h3>Методи об'єкта</h3>
+                <h4>Завдання 3. Отримання пар «ключ — значення»</h4>
+                <p>Метод <code>Object.entries()</code> повертає масив пар «ключ — значення». Масив виведено в Console, а потім перебрано методом <code>forEach()</code> із деструктуризацією пари у змінні <code>key</code> і <code>value</code>.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Методи об'єкта. Завдання 3. Отримання пар «ключ — значення» ----------
+Створіть об'єкт car із властивостями brand, model, year, color.
 За допомогою методу Object.entries() отримайте масив пар
 «ключ — значення». Виведіть результат у консоль.
 */
 
 function methods3() {
   const car = {
-    brand: &quot;Toyota&quot;,
-    model: &quot;Camry&quot;,
+    brand: "Toyota",
+    model: "Camry",
     year: 2020,
-    color: &quot;сірий&quot;,
+    color: "сірий",
   };
 
   const entries = Object.entries(car);
-  console.log(&quot;Пари «ключ — значення»:&quot;, entries);
+  console.log("Пари «ключ — значення»:", entries);
 
-  entries.forEach(([key, value]) =&gt; {
+  entries.forEach(([key, value]) => {
     console.log(`${key}: ${value}`);
   });
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-methods3.png" alt="Console: Методи об'єкта, завдання 3"><figcaption>Рис. 3. Методи об'єкта · завдання 3</figcaption></figure><h4>Завдання 10. Заборона зміни властивостей об'єкта</h4><p>Об'єкт <code>settings</code> заморожено методом <code>Object.freeze()</code>. Спроби змінити, додати та видалити властивості ігноруються, а <code>Object.isFrozen()</code> підтверджує, що об'єкт заморожений.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Методи об&#x27;єкта. Завдання 10. Заборона зміни властивостей об&#x27;єкта ----------
-Створіть об&#x27;єкт settings, який містить властивості theme, language,
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-methods3.png" alt="Console: Методи об'єкта, завдання 3">
+                    <figcaption>Рис. 3. Методи об'єкта · завдання 3</figcaption>
+                </figure>
+
+                <h4>Завдання 10. Заборона зміни властивостей об'єкта</h4>
+                <p>Об'єкт <code>settings</code> заморожено методом <code>Object.freeze()</code>. Спроби змінити, додати та видалити властивості ігноруються, а <code>Object.isFrozen()</code> підтверджує, що об'єкт заморожений.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Методи об'єкта. Завдання 10. Заборона зміни властивостей об'єкта ----------
+Створіть об'єкт settings, який містить властивості theme, language,
 fontSize. Використайте метод Object.freeze() для заборони зміни
-об&#x27;єкта. За допомогою Object.isFrozen() перевірте, чи заморожений
-об&#x27;єкт. Виведіть результат у консоль.
+об'єкта. За допомогою Object.isFrozen() перевірте, чи заморожений
+об'єкт. Виведіть результат у консоль.
 */
 
 function methods10() {
   const settings = {
-    theme: &quot;dark&quot;,
-    language: &quot;uk&quot;,
+    theme: "dark",
+    language: "uk",
     fontSize: 16,
   };
 
   Object.freeze(settings);
 
   // Спроби змін мовчки ігноруються (у strict mode дали б помилку)
-  settings.theme = &quot;light&quot;;
+  settings.theme = "light";
   settings.fontSize = 24;
-  settings.newProp = &quot;test&quot;;
+  settings.newProp = "test";
   delete settings.language;
 
-  console.log(&quot;Об&#x27;єкт заморожено:&quot;, Object.isFrozen(settings));
-  console.log(&quot;Об&#x27;єкт після спроб змін:&quot;, settings);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-methods10.png" alt="Console: Методи об'єкта, завдання 10"><figcaption>Рис. 4. Методи об'єкта · завдання 10</figcaption></figure></section>
-<section id="array"><h3>Масив об'єктів</h3><h4>Завдання 3. Отримання першого та останнього елементів</h4><p>Масив <code>books</code> містить п'ять об'єктів. Назва першої книги береться за індексом <code>0</code>, останньої — за індексом <code>books.length - 1</code>.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Масив об&#x27;єктів. Завдання 3. Отримання першого та останнього елементів ----------
-Створіть масив об&#x27;єктів books, у якому зберігається інформація
-про п&#x27;ять книг. Виведіть у консоль назву першої та останньої книги,
+  console.log("Об'єкт заморожено:", Object.isFrozen(settings));
+  console.log("Об'єкт після спроб змін:", settings);
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-methods10.png" alt="Console: Методи об'єкта, завдання 10">
+                    <figcaption>Рис. 4. Методи об'єкта · завдання 10</figcaption>
+                </figure>
+            </section>
+
+            <section id="array" data-nav="Масив об'єктів">
+                <h3>Масив об'єктів</h3>
+                <h4>Завдання 3. Отримання першого та останнього елементів</h4>
+                <p>Масив <code>books</code> містить п'ять об'єктів. Назва першої книги береться за індексом <code>0</code>, останньої — за індексом <code>books.length - 1</code>.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Масив об'єктів. Завдання 3. Отримання першого та останнього елементів ----------
+Створіть масив об'єктів books, у якому зберігається інформація
+про п'ять книг. Виведіть у консоль назву першої та останньої книги,
 використовуючи індекси масиву.
 */
 
 function array3() {
   const books = [
-    { id: 1, title: &quot;Кобзар&quot;, author: &quot;Тарас Шевченко&quot;, year: 1840 },
-    { id: 2, title: &quot;Тіні забутих предків&quot;, author: &quot;Михайло Коцюбинський&quot;, year: 1911 },
-    { id: 3, title: &quot;Intermezzo&quot;, author: &quot;Михайло Коцюбинський&quot;, year: 1909 },
-    { id: 4, title: &quot;Лісова пісня&quot;, author: &quot;Леся Українка&quot;, year: 1911 },
-    { id: 5, title: &quot;Захар Беркут&quot;, author: &quot;Іван Франко&quot;, year: 1883 },
+    { id: 1, title: "Кобзар", author: "Тарас Шевченко", year: 1840 },
+    { id: 2, title: "Тіні забутих предків", author: "Михайло Коцюбинський", year: 1911 },
+    { id: 3, title: "Intermezzo", author: "Михайло Коцюбинський", year: 1909 },
+    { id: 4, title: "Лісова пісня", author: "Леся Українка", year: 1911 },
+    { id: 5, title: "Захар Беркут", author: "Іван Франко", year: 1883 },
   ];
 
   console.log(`Перша книга: ${books[0].title}`);
   console.log(`Остання книга: ${books[books.length - 1].title}`);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-array3.png" alt="Console: Масив об'єктів, завдання 3"><figcaption>Рис. 5. Масив об'єктів · завдання 3</figcaption></figure><h4>Завдання 8. Обчислення загальної вартості товарів</h4><p>Масив <code>products</code> містить товари з властивостями <code>name</code>, <code>price</code> і <code>quantity</code>. Циклом <code>for...of</code> до змінної <code>total</code> додається <code>price * quantity</code> кожного товару.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Масив об&#x27;єктів. Завдання 8. Обчислення загальної вартості товарів ----------
-Створіть масив об&#x27;єктів products, у якому кожен товар має властивості
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-array3.png" alt="Console: Масив об'єктів, завдання 3">
+                    <figcaption>Рис. 5. Масив об'єктів · завдання 3</figcaption>
+                </figure>
+
+                <h4>Завдання 8. Обчислення загальної вартості товарів</h4>
+                <p>Масив <code>products</code> містить товари з властивостями <code>name</code>, <code>price</code> і <code>quantity</code>. Циклом <code>for...of</code> до змінної <code>total</code> додається <code>price * quantity</code> кожного товару.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Масив об'єктів. Завдання 8. Обчислення загальної вартості товарів ----------
+Створіть масив об'єктів products, у якому кожен товар має властивості
 name, price та quantity. Використовуючи цикл for...of, обчисліть
 загальну вартість усіх товарів на складі з урахуванням їхньої
 кількості.
@@ -212,10 +223,10 @@ name, price та quantity. Використовуючи цикл for...of, об�
 
 function array8() {
   const products = [
-    { name: &quot;Ноутбук&quot;, price: 32999, quantity: 5 },
-    { name: &quot;Смартфон&quot;, price: 18999, quantity: 10 },
-    { name: &quot;Навушники&quot;, price: 1499, quantity: 30 },
-    { name: &quot;Клавіатура&quot;, price: 1299, quantity: 15 },
+    { name: "Ноутбук", price: 32999, quantity: 5 },
+    { name: "Смартфон", price: 18999, quantity: 10 },
+    { name: "Навушники", price: 1499, quantity: 30 },
+    { name: "Клавіатура", price: 1299, quantity: 15 },
   ];
 
   let total = 0;
@@ -223,11 +234,23 @@ function array8() {
     total += product.price * product.quantity;
   }
 
-  console.log(&quot;Товари:&quot;, products);
+  console.log("Товари:", products);
   console.log(`Загальна вартість товарів на складі: ${total} грн`);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-array8.png" alt="Console: Масив об'єктів, завдання 8"><figcaption>Рис. 6. Масив об'єктів · завдання 8</figcaption></figure></section>
-<section id="destruct"><h3>Деструктуризація об'єктів</h3><h4>Завдання 3. Значення за замовчуванням</h4><p>Під час деструктуризації для властивості <code>discount</code>, якої немає в об'єкті, задано значення за замовчуванням <code>0</code>.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Деструктуризація. Завдання 3. Значення за замовчуванням ----------
-Створіть об&#x27;єкт product, який містить властивості name та price,
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-array8.png" alt="Console: Масив об'єктів, завдання 8">
+                    <figcaption>Рис. 6. Масив об'єктів · завдання 8</figcaption>
+                </figure>
+            </section>
+
+            <section id="destruct" data-nav="Деструктуризація об'єктів">
+                <h3>Деструктуризація об'єктів</h3>
+                <h4>Завдання 3. Значення за замовчуванням</h4>
+                <p>Під час деструктуризації для властивості <code>discount</code>, якої немає в об'єкті, задано значення за замовчуванням <code>0</code>.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Деструктуризація. Завдання 3. Значення за замовчуванням ----------
+Створіть об'єкт product, який містить властивості name та price,
 але не містить властивості discount. Виконайте деструктуризацію
 та задайте для discount значення за замовчуванням 0. Виведіть
 назву товару, ціну та знижку.
@@ -235,7 +258,7 @@ function array8() {
 
 function destruct3() {
   const product = {
-    name: &quot;Бездротові навушники&quot;,
+    name: "Бездротові навушники",
     price: 1499,
   };
 
@@ -244,8 +267,18 @@ function destruct3() {
   console.log(`Назва: ${name}`);
   console.log(`Ціна: ${price} грн`);
   console.log(`Знижка: ${discount}%`);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-destruct3.png" alt="Console: Деструктуризація об'єктів, завдання 3"><figcaption>Рис. 7. Деструктуризація об'єктів · завдання 3</figcaption></figure><h4>Завдання 7. Деструктуризація параметрів функції</h4><p>Функція <code>showStudent</code> приймає об'єкт і деструктуризує його безпосередньо в параметрах: <code>{ name, age, group }</code>. Функцію викликано для двох студентів.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Деструктуризація. Завдання 7. Деструктуризація параметрів функції ----------
-Створіть функцію showStudent(), яка приймає об&#x27;єкт студента як
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-destruct3.png" alt="Console: Деструктуризація об'єктів, завдання 3">
+                    <figcaption>Рис. 7. Деструктуризація об'єктів · завдання 3</figcaption>
+                </figure>
+
+                <h4>Завдання 7. Деструктуризація параметрів функції</h4>
+                <p>Функція <code>showStudent</code> приймає об'єкт і деструктуризує його безпосередньо в параметрах: <code>{ name, age, group }</code>. Функцію викликано для двох студентів.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Деструктуризація. Завдання 7. Деструктуризація параметрів функції ----------
+Створіть функцію showStudent(), яка приймає об'єкт студента як
 параметр. Використайте деструктуризацію безпосередньо в параметрах
 функції для отримання властивостей name, age, group. Функція повинна
 виводити інформацію про студента.
@@ -256,14 +289,24 @@ function showStudent({ name, age, group }) {
 }
 
 function destruct7() {
-  showStudent({ name: &quot;Антон&quot;, age: 19, group: &quot;ІО-45&quot; });
-  showStudent({ name: &quot;Олена&quot;, age: 20, group: &quot;ІП-41&quot; });
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-destruct7.png" alt="Console: Деструктуризація об'єктів, завдання 7"><figcaption>Рис. 8. Деструктуризація об'єктів · завдання 7</figcaption></figure><h4>Завдання 10. Опрацювання об'єкта відповіді сервера</h4><p>Об'єкт <code>response</code> імітує відповідь сервера. Вкладена деструктуризація з перейменуванням (<code>name → userName</code>, <code>email → userEmail</code>, <code>city → userCity</code>, <code>status → responseStatus</code>) дістає потрібні дані одним записом.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Деструктуризація. Завдання 10. Опрацювання об&#x27;єкта відповіді сервера ----------
-Створіть об&#x27;єкт response, який імітує відповідь сервера та містить
+  showStudent({ name: "Антон", age: 19, group: "ІО-45" });
+  showStudent({ name: "Олена", age: 20, group: "ІП-41" });
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-destruct7.png" alt="Console: Деструктуризація об'єктів, завдання 7">
+                    <figcaption>Рис. 8. Деструктуризація об'єктів · завдання 7</figcaption>
+                </figure>
+
+                <h4>Завдання 10. Опрацювання об'єкта відповіді сервера</h4>
+                <p>Об'єкт <code>response</code> імітує відповідь сервера. Вкладена деструктуризація з перейменуванням (<code>name → userName</code>, <code>email → userEmail</code>, <code>city → userCity</code>, <code>status → responseStatus</code>) дістає потрібні дані одним записом.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Деструктуризація. Завдання 10. Опрацювання об'єкта відповіді сервера ----------
+Створіть об'єкт response, який імітує відповідь сервера та містить
 вкладені дані користувача: data.user.name, data.user.email,
 data.user.address.city, а також властивість status. Використовуючи
 вкладену деструктуризацію та перейменування властивостей, отримайте
-ім&#x27;я, електронну пошту, місто та статус відповіді.
+ім'я, електронну пошту, місто та статус відповіді.
 */
 
 function destruct10() {
@@ -271,10 +314,10 @@ function destruct10() {
     status: 200,
     data: {
       user: {
-        name: &quot;Антон&quot;,
-        email: &quot;anton@example.com&quot;,
+        name: "Антон",
+        email: "anton@example.com",
         address: {
-          city: &quot;Київ&quot;,
+          city: "Київ",
         },
       },
     },
@@ -291,13 +334,25 @@ function destruct10() {
     },
   } = response;
 
-  console.log(`Ім&#x27;я: ${userName}`);
+  console.log(`Ім'я: ${userName}`);
   console.log(`Email: ${userEmail}`);
   console.log(`Місто: ${userCity}`);
   console.log(`Статус відповіді: ${responseStatus}`);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-destruct10.png" alt="Console: Деструктуризація об'єктів, завдання 10"><figcaption>Рис. 9. Деструктуризація об'єктів · завдання 10</figcaption></figure></section>
-<section id="callback"><h3>Callback-функції</h3><h4>Завдання 3. Обробка імені за допомогою callback</h4><p>Функція <code>formatName</code> приймає ім'я та callback і повертає результат його виклику. Передано два callback: <code>toUpperName</code> (великі літери) та <code>capitalizeName</code> (перша літера велика).</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Callback. Завдання 3. Обробка імені за допомогою callback ----------
-Створіть функцію formatName(), яка приймає ім&#x27;я та функцію зворотного
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-destruct10.png" alt="Console: Деструктуризація об'єктів, завдання 10">
+                    <figcaption>Рис. 9. Деструктуризація об'єктів · завдання 10</figcaption>
+                </figure>
+            </section>
+
+            <section id="callback" data-nav="Callback-функції">
+                <h3>Callback-функції</h3>
+                <h4>Завдання 3. Обробка імені за допомогою callback</h4>
+                <p>Функція <code>formatName</code> приймає ім'я та callback і повертає результат його виклику. Передано два callback: <code>toUpperName</code> (великі літери) та <code>capitalizeName</code> (перша літера велика).</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Callback. Завдання 3. Обробка імені за допомогою callback ----------
+Створіть функцію formatName(), яка приймає ім'я та функцію зворотного
 виклику. Реалізуйте два варіанти callback: перетворення імені на великі
 літери та перетворення першої літери на велику. Перевірте роботу обох
 варіантів.
@@ -316,11 +371,21 @@ function capitalizeName(name) {
 }
 
 function callback3() {
-  console.log(formatName(&quot;олена&quot;, toUpperName));      // ОЛЕНА
-  console.log(formatName(&quot;андрій&quot;, toUpperName));     // АНДРІЙ
-  console.log(formatName(&quot;олена&quot;, capitalizeName));   // Олена
-  console.log(formatName(&quot;МАРІЯ&quot;, capitalizeName));   // Марія
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-callback3.png" alt="Console: Callback-функції, завдання 3"><figcaption>Рис. 10. Callback-функції · завдання 3</figcaption></figure><h4>Завдання 9. Власна функція для обробки масиву</h4><p>Функція <code>processArray</code> за допомогою <code>for...of</code> передає кожен елемент масиву в callback, а callback <code>printSquare</code> виводить квадрат числа.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Callback. Завдання 9. Власна функція для обробки масиву ----------
+  console.log(formatName("олена", toUpperName));      // ОЛЕНА
+  console.log(formatName("андрій", toUpperName));     // АНДРІЙ
+  console.log(formatName("олена", capitalizeName));   // Олена
+  console.log(formatName("МАРІЯ", capitalizeName));   // Марія
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-callback3.png" alt="Console: Callback-функції, завдання 3">
+                    <figcaption>Рис. 10. Callback-функції · завдання 3</figcaption>
+                </figure>
+
+                <h4>Завдання 9. Власна функція для обробки масиву</h4>
+                <p>Функція <code>processArray</code> за допомогою <code>for...of</code> передає кожен елемент масиву в callback, а callback <code>printSquare</code> виводить квадрат числа.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Callback. Завдання 9. Власна функція для обробки масиву ----------
 Створіть функцію processArray(), яка приймає масив чисел та функцію
 зворотного виклику. За допомогою циклу for...of переберіть елементи
 масиву та передайте кожен елемент у callback. Створіть callback,
@@ -339,33 +404,67 @@ function printSquare(number) {
 
 function callback9() {
   processArray([1, 2, 3, 4, 5], printSquare);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-callback9.png" alt="Console: Callback-функції, завдання 9"><figcaption>Рис. 11. Callback-функції · завдання 9</figcaption></figure></section>
-<section id="arrow"><h3>Стрілочні функції</h3><h4>Завдання 3. Перевірка парності числа</h4><p>Функцію <code>isEven</code> оголошено як стрілочну з неявним поверненням результату: <code>number % 2 === 0</code>. Перевірено для п'яти чисел.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Стрілочні функції. Завдання 3. Перевірка парності числа ----------
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-callback9.png" alt="Console: Callback-функції, завдання 9">
+                    <figcaption>Рис. 11. Callback-функції · завдання 9</figcaption>
+                </figure>
+            </section>
+
+            <section id="arrow" data-nav="Стрілочні функції">
+                <h3>Стрілочні функції</h3>
+                <h4>Завдання 3. Перевірка парності числа</h4>
+                <p>Функцію <code>isEven</code> оголошено як стрілочну з неявним поверненням результату: <code>number % 2 === 0</code>. Перевірено для п'яти чисел.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Стрілочні функції. Завдання 3. Перевірка парності числа ----------
 Створіть стрілочну функцію isEven, яка приймає число та повертає true,
 якщо число парне, і false, якщо непарне. Перевірте роботу функції
-для п&#x27;яти різних чисел.
+для п'яти різних чисел.
 */
 
-const isEven = (number) =&gt; number % 2 === 0;
+const isEven = (number) => number % 2 === 0;
 
 function arrow3() {
-  [2, 7, 10, 15, 42].forEach((number) =&gt; {
+  [2, 7, 10, 15, 42].forEach((number) => {
     console.log(`isEven(${number}) = ${isEven(number)}`);
   });
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-arrow3.png" alt="Console: Стрілочні функції, завдання 3"><figcaption>Рис. 12. Стрілочні функції · завдання 3</figcaption></figure><h4>Завдання 6. Створення функції без параметрів</h4><p><code>showDate</code> — стрілочна функція без параметрів, яка повертає <code>new Date()</code>. У Console виведено об'єкт <code>Date</code> та дату у форматі <code>uk-UA</code>.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Стрілочні функції. Завдання 6. Створення функції без параметрів ----------
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-arrow3.png" alt="Console: Стрілочні функції, завдання 3">
+                    <figcaption>Рис. 12. Стрілочні функції · завдання 3</figcaption>
+                </figure>
+
+                <h4>Завдання 6. Створення функції без параметрів</h4>
+                <p><code>showDate</code> — стрілочна функція без параметрів, яка повертає <code>new Date()</code>. У Console виведено об'єкт <code>Date</code> та дату у форматі <code>uk-UA</code>.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Стрілочні функції. Завдання 6. Створення функції без параметрів ----------
 Створіть стрілочну функцію showDate, яка не приймає параметрів та
-повертає поточну дату. Використайте об&#x27;єкт Date. Виведіть результат
+повертає поточну дату. Використайте об'єкт Date. Виведіть результат
 у консоль.
 */
 
-const showDate = () =&gt; new Date();
+const showDate = () => new Date();
 
 function arrow6() {
   const now = showDate();
   console.log(now);
-  console.log(`Поточна дата: ${now.toLocaleDateString(&quot;uk-UA&quot;)}`);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-arrow6.png" alt="Console: Стрілочні функції, завдання 6"><figcaption>Рис. 13. Стрілочні функції · завдання 6</figcaption></figure></section>
-<section id="arrowCb"><h3>Стрілочні функції як колбеки</h3><h4>Завдання 3. Форматування тексту</h4><p>Функція <code>formatText</code> приймає текст і функцію форматування. Як callback передано три стрілочні функції: <code>toUpperCase()</code>, <code>toLowerCase()</code> та <code>trim()</code>.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Стрілочні як колбеки. Завдання 3. Форматування тексту ----------
+  console.log(`Поточна дата: ${now.toLocaleDateString("uk-UA")}`);
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-arrow6.png" alt="Console: Стрілочні функції, завдання 6">
+                    <figcaption>Рис. 13. Стрілочні функції · завдання 6</figcaption>
+                </figure>
+            </section>
+
+            <section id="arrowCb" data-nav="Стрілочні функції як колбеки">
+                <h3>Стрілочні функції як колбеки</h3>
+                <h4>Завдання 3. Форматування тексту</h4>
+                <p>Функція <code>formatText</code> приймає текст і функцію форматування. Як callback передано три стрілочні функції: <code>toUpperCase()</code>, <code>toLowerCase()</code> та <code>trim()</code>.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Стрілочні як колбеки. Завдання 3. Форматування тексту ----------
 Створіть функцію formatText(), яка приймає текст і функцію
 форматування. Використовуючи стрілочні функції як callback,
 реалізуйте перетворення тексту на великі літери, малі літери
@@ -377,13 +476,23 @@ function formatText(text, formatter) {
 }
 
 function arrowCb3() {
-  const text = &quot;   Hello, JavaScript!   &quot;;
+  const text = "   Hello, JavaScript!   ";
 
-  console.log(`Оригінал: &quot;${text}&quot;`);
-  console.log(`Великі літери: &quot;${formatText(text, (str) =&gt; str.toUpperCase())}&quot;`);
-  console.log(`Малі літери: &quot;${formatText(text, (str) =&gt; str.toLowerCase())}&quot;`);
-  console.log(`Без зайвих пробілів: &quot;${formatText(text, (str) =&gt; str.trim())}&quot;`);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-arrowCb3.png" alt="Console: Стрілочні функції як колбеки, завдання 3"><figcaption>Рис. 14. Стрілочні функції як колбеки · завдання 3</figcaption></figure><h4>Завдання 5. Обробка натискання кнопки</h4><p>На сторінці є кнопка «Натисни мене». Обробник події <code>click</code>, доданий через <code>addEventListener()</code>, — стрілочна функція, яка збільшує лічильник натискань і виводить повідомлення і в Console, і на сторінці.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Стрілочні як колбеки. Завдання 5. Обробка натискання кнопки ----------
+  console.log(`Оригінал: "${text}"`);
+  console.log(`Великі літери: "${formatText(text, (str) => str.toUpperCase())}"`);
+  console.log(`Малі літери: "${formatText(text, (str) => str.toLowerCase())}"`);
+  console.log(`Без зайвих пробілів: "${formatText(text, (str) => str.trim())}"`);
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-arrowCb3.png" alt="Console: Стрілочні функції як колбеки, завдання 3">
+                    <figcaption>Рис. 14. Стрілочні функції як колбеки · завдання 3</figcaption>
+                </figure>
+
+                <h4>Завдання 5. Обробка натискання кнопки</h4>
+                <p>На сторінці є кнопка «Натисни мене». Обробник події <code>click</code>, доданий через <code>addEventListener()</code>, — стрілочна функція, яка збільшує лічильник натискань і виводить повідомлення і в Console, і на сторінці.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Стрілочні як колбеки. Завдання 5. Обробка натискання кнопки ----------
 Створіть HTML-сторінку з кнопкою button та підключеним JavaScript-файлом.
 За допомогою addEventListener() додайте обробник події click.
 Для обробника використайте стрілочну функцію, яка виводить повідомлення
@@ -391,21 +500,31 @@ function arrowCb3() {
 */
 
 function arrowCb5Init() {
-  const button = document.getElementById(&quot;click-button&quot;);
-  const output = document.getElementById(&quot;click-output&quot;);
+  const button = document.getElementById("click-button");
+  const output = document.getElementById("click-output");
   if (!button || !output) return;
 
   let clicks = 0;
-  button.addEventListener(&quot;click&quot;, () =&gt; {
+  button.addEventListener("click", () => {
     clicks += 1;
     const message = `Кнопку натиснуто: ${clicks}`;
     console.log(message);
     output.textContent = message;
   });
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-arrowCb5.png" alt="Console: Стрілочні функції як колбеки, завдання 5"><figcaption>Рис. 15. Стрілочні функції як колбеки · завдання 5 (сторінка з кнопкою та Console)</figcaption></figure><h4>Завдання 8. Повторне виконання стрілочної функції</h4><p><code>setInterval()</code> зі стрілочною функцією щосекунди збільшує лічильник і виводить його в Console. Після п'яти повторень інтервал зупиняється викликом <code>clearInterval()</code>.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Стрілочні як колбеки. Завдання 8. Повторне виконання стрілочної функції ----------
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-arrowCb5.png" alt="Console: Стрілочні функції як колбеки, завдання 5">
+                    <figcaption>Рис. 15. Стрілочні функції як колбеки · завдання 5 (сторінка з кнопкою та Console)</figcaption>
+                </figure>
+
+                <h4>Завдання 8. Повторне виконання стрілочної функції</h4>
+                <p><code>setInterval()</code> зі стрілочною функцією щосекунди збільшує лічильник і виводить його в Console. Після п'яти повторень інтервал зупиняється викликом <code>clearInterval()</code>.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Стрілочні як колбеки. Завдання 8. Повторне виконання стрілочної функції ----------
 Використовуючи setInterval(), створіть програму, яка щосекунди виводить
 у консоль поточне значення лічильника. Callback реалізуйте за допомогою
-стрілочної функції. Після п&#x27;яти повторень зупиніть виконання через
+стрілочної функції. Після п'яти повторень зупиніть виконання через
 clearInterval().
 */
 
@@ -413,43 +532,65 @@ let counterTimerId = null;
 
 function arrowCb8() {
   if (counterTimerId !== null) {
-    console.log(&quot;Лічильник уже запущено, зачекайте завершення&quot;);
+    console.log("Лічильник уже запущено, зачекайте завершення");
     return;
   }
 
   let counter = 0;
-  counterTimerId = setInterval(() =&gt; {
+  counterTimerId = setInterval(() => {
     counter += 1;
     console.log(`Лічильник: ${counter}`);
 
     if (counter === 5) {
       clearInterval(counterTimerId);
       counterTimerId = null;
-      console.log(&quot;Лічильник зупинено&quot;);
+      console.log("Лічильник зупинено");
     }
   }, 1000);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-arrowCb8.png" alt="Console: Стрілочні функції як колбеки, завдання 8"><figcaption>Рис. 16. Стрілочні функції як колбеки · завдання 8</figcaption></figure></section>
-<section id="iter"><h3>Перебираючі методи масиву</h3><h4>Завдання 3. Фільтрація масиву за допомогою filter()</h4><p>Метод <code>filter()</code> зі стрілочною функцією <code>student =&gt; student.grade &gt;= 80</code> повертає новий масив студентів з оцінкою від 80 балів. Початковий масив не змінюється.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Перебираючі методи. Завдання 3. Фільтрація масиву за допомогою filter() ----------
-Створіть масив об&#x27;єктів students із властивостями name, age, grade.
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-arrowCb8.png" alt="Console: Стрілочні функції як колбеки, завдання 8">
+                    <figcaption>Рис. 16. Стрілочні функції як колбеки · завдання 8</figcaption>
+                </figure>
+            </section>
+
+            <section id="iter" data-nav="Перебираючі методи масиву">
+                <h3>Перебираючі методи масиву</h3>
+                <h4>Завдання 3. Фільтрація масиву за допомогою filter()</h4>
+                <p>Метод <code>filter()</code> зі стрілочною функцією <code>student =&gt; student.grade &gt;= 80</code> повертає новий масив студентів з оцінкою від 80 балів. Початковий масив не змінюється.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Перебираючі методи. Завдання 3. Фільтрація масиву за допомогою filter() ----------
+Створіть масив об'єктів students із властивостями name, age, grade.
 Використовуючи метод filter(), створіть новий масив студентів, оцінка
 яких більша або дорівнює 80 балам. Виведіть результат у консоль.
 */
 
 function iter3() {
   const students = [
-    { name: &quot;Олена&quot;, age: 20, grade: 95 },
-    { name: &quot;Андрій&quot;, age: 21, grade: 72 },
-    { name: &quot;Марія&quot;, age: 19, grade: 88 },
-    { name: &quot;Іван&quot;, age: 20, grade: 60 },
-    { name: &quot;Софія&quot;, age: 22, grade: 80 },
+    { name: "Олена", age: 20, grade: 95 },
+    { name: "Андрій", age: 21, grade: 72 },
+    { name: "Марія", age: 19, grade: 88 },
+    { name: "Іван", age: 20, grade: 60 },
+    { name: "Софія", age: 22, grade: 80 },
   ];
 
-  const successfulStudents = students.filter((student) =&gt; student.grade &gt;= 80);
+  const successfulStudents = students.filter((student) => student.grade >= 80);
 
-  console.log(&quot;Усі студенти:&quot;, students);
-  console.log(&quot;Студенти з оцінкою від 80:&quot;, successfulStudents);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-iter3.png" alt="Console: Перебираючі методи масиву, завдання 3"><figcaption>Рис. 17. Перебираючі методи масиву · завдання 3</figcaption></figure><h4>Завдання 5. Пошук індексу елемента за допомогою findIndex()</h4><p>Метод <code>findIndex()</code> шукає товар за <code>id</code>. Для наявного <code>id</code> повертається індекс, для відсутнього — <code>-1</code>, і виводиться повідомлення, що товар не знайдено.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Перебираючі методи. Завдання 5. Пошук індексу елемента за допомогою findIndex() ----------
-Створіть масив об&#x27;єктів товарів із властивостями id, name, price.
+  console.log("Усі студенти:", students);
+  console.log("Студенти з оцінкою від 80:", successfulStudents);
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-iter3.png" alt="Console: Перебираючі методи масиву, завдання 3">
+                    <figcaption>Рис. 17. Перебираючі методи масиву · завдання 3</figcaption>
+                </figure>
+
+                <h4>Завдання 5. Пошук індексу елемента за допомогою findIndex()</h4>
+                <p>Метод <code>findIndex()</code> шукає товар за <code>id</code>. Для наявного <code>id</code> повертається індекс, для відсутнього — <code>-1</code>, і виводиться повідомлення, що товар не знайдено.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Перебираючі методи. Завдання 5. Пошук індексу елемента за допомогою findIndex() ----------
+Створіть масив об'єктів товарів із властивостями id, name, price.
 Використовуючи метод findIndex(), знайдіть індекс товару з визначеним
 ідентифікатором. Виведіть індекс у консоль. Якщо товар не знайдено,
 виведіть повідомлення.
@@ -457,14 +598,14 @@ function iter3() {
 
 function iter5() {
   const products = [
-    { id: 101, name: &quot;Ноутбук&quot;, price: 32999 },
-    { id: 102, name: &quot;Смартфон&quot;, price: 18999 },
-    { id: 103, name: &quot;Навушники&quot;, price: 1499 },
-    { id: 104, name: &quot;Клавіатура&quot;, price: 1299 },
+    { id: 101, name: "Ноутбук", price: 32999 },
+    { id: 102, name: "Смартфон", price: 18999 },
+    { id: 103, name: "Навушники", price: 1499 },
+    { id: 104, name: "Клавіатура", price: 1299 },
   ];
 
-  [103, 999].forEach((id) =&gt; {
-    const index = products.findIndex((product) =&gt; product.id === id);
+  [103, 999].forEach((id) => {
+    const index = products.findIndex((product) => product.id === id);
 
     if (index === -1) {
       console.log(`Товар з id ${id} не знайдено`);
@@ -472,61 +613,80 @@ function iter5() {
       console.log(`Товар з id ${id} має індекс ${index}`);
     }
   });
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-iter5.png" alt="Console: Перебираючі методи масиву, завдання 5"><figcaption>Рис. 18. Перебираючі методи масиву · завдання 5</figcaption></figure><h4>Завдання 10. Комплексне опрацювання масиву об'єктів</h4><p>Послідовно виконано <code>filter()</code> (товари категорії «Смартфони»), <code>map()</code> (назва і ціна зі знижкою 10%) та <code>reduce()</code> (загальна вартість з урахуванням кількості). Вартість виведено без знижки та зі знижкою 10%.</p><p><b>Програмний код:</b></p><pre><code>/* ---------- Перебираючі методи. Завдання 10. Комплексне опрацювання масиву об&#x27;єктів ----------
-Створіть масив об&#x27;єктів products, кожен із яких містить властивості
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-iter5.png" alt="Console: Перебираючі методи масиву, завдання 5">
+                    <figcaption>Рис. 18. Перебираючі методи масиву · завдання 5</figcaption>
+                </figure>
+
+                <h4>Завдання 10. Комплексне опрацювання масиву об'єктів</h4>
+                <p>Послідовно виконано <code>filter()</code> (товари категорії «Смартфони»), <code>map()</code> (назва і ціна зі знижкою 10%) та <code>reduce()</code> (загальна вартість з урахуванням кількості). Вартість виведено без знижки та зі знижкою 10%.</p>
+                <p><strong>Програмний код:</strong></p>
+                <pre><code>/* ---------- Перебираючі методи. Завдання 10. Комплексне опрацювання масиву об'єктів ----------
+Створіть масив об'єктів products, кожен із яких містить властивості
 id, name, category, price, quantity. Виконайте послідовно такі операції:
- - За допомогою filter() відберіть товари вибраної категорії.
- - За допомогою map() створіть масив об&#x27;єктів, у яких залиште назву
+- За допомогою filter() відберіть товари вибраної категорії.
+- За допомогою map() створіть масив об'єктів, у яких залиште назву
    товару та його ціну зі знижкою 10%.
- - За допомогою reduce() обчисліть загальну вартість відібраних товарів
+- За допомогою reduce() обчисліть загальну вартість відібраних товарів
    з урахуванням кількості одиниць.
- - Виведіть отриманий масив та загальну вартість у консоль.
+- Виведіть отриманий масив та загальну вартість у консоль.
 */
 
 function iter10() {
   const products = [
-    { id: 1, name: &quot;iPhone 15&quot;, category: &quot;Смартфони&quot;, price: 40000, quantity: 3 },
-    { id: 2, name: &quot;Samsung Galaxy S24&quot;, category: &quot;Смартфони&quot;, price: 35000, quantity: 5 },
-    { id: 3, name: &quot;Lenovo ThinkBook 14&quot;, category: &quot;Ноутбуки&quot;, price: 32000, quantity: 4 },
-    { id: 4, name: &quot;Xiaomi 13T&quot;, category: &quot;Смартфони&quot;, price: 20000, quantity: 8 },
-    { id: 5, name: &quot;Sony WH-1000XM5&quot;, category: &quot;Аудіотехніка&quot;, price: 12000, quantity: 6 },
+    { id: 1, name: "iPhone 15", category: "Смартфони", price: 40000, quantity: 3 },
+    { id: 2, name: "Samsung Galaxy S24", category: "Смартфони", price: 35000, quantity: 5 },
+    { id: 3, name: "Lenovo ThinkBook 14", category: "Ноутбуки", price: 32000, quantity: 4 },
+    { id: 4, name: "Xiaomi 13T", category: "Смартфони", price: 20000, quantity: 8 },
+    { id: 5, name: "Sony WH-1000XM5", category: "Аудіотехніка", price: 12000, quantity: 6 },
   ];
-  const selectedCategory = &quot;Смартфони&quot;;
+  const selectedCategory = "Смартфони";
 
   // 1. Відбір товарів вибраної категорії
-  const selected = products.filter((product) =&gt; product.category === selectedCategory);
+  const selected = products.filter((product) => product.category === selectedCategory);
 
   // 2. Назва і ціна зі знижкою 10%
-  const discounted = selected.map((product) =&gt; ({
+  const discounted = selected.map((product) => ({
     name: product.name,
     price: Number((product.price * 0.9).toFixed(2)),
   }));
 
   // 3. Загальна вартість відібраних товарів з урахуванням кількості
   const totalWithoutDiscount = selected.reduce(
-    (sum, product) =&gt; sum + product.price * product.quantity,
+    (sum, product) => sum + product.price * product.quantity,
     0
   );
   const totalWithDiscount = selected.reduce(
-    (sum, product) =&gt; sum + product.price * 0.9 * product.quantity,
+    (sum, product) => sum + product.price * 0.9 * product.quantity,
     0
   );
 
   // 4. Вивід
   console.log(`Категорія: ${selectedCategory}`);
-  console.log(&quot;Товари зі знижкою 10%:&quot;, discounted);
+  console.log("Товари зі знижкою 10%:", discounted);
   console.log(`Загальна вартість без знижки: ${totalWithoutDiscount} грн`);
   console.log(`Загальна вартість зі знижкою 10%: ${totalWithDiscount} грн`);
-}</code></pre><p><b>Результат виконання:</b></p><figure><img class="screenshot" src="img/lab5-iter10.png" alt="Console: Перебираючі методи масиву, завдання 10"><figcaption>Рис. 19. Перебираючі методи масиву · завдання 10</figcaption></figure></section>
+}</code></pre>
+                <p><strong>Результат виконання:</strong></p>
+                <figure>
+                    <img class="screenshot" src="img/lab5-iter10.png" alt="Console: Перебираючі методи масиву, завдання 10">
+                    <figcaption>Рис. 19. Перебираючі методи масиву · завдання 10</figcaption>
+                </figure>
+            </section>
 
-<section id="topic-end">
-<h3>ВИСНОВКИ</h3>
-<p>Під час виконання лабораторної роботи було набуто практичних навичок роботи з об'єктами в JavaScript: створення літералів, доступу до властивостей через крапку, видалення властивостей оператором <code>delete</code> та роботи з методами <code>Object.entries()</code>, <code>Object.freeze()</code> і <code>Object.isFrozen()</code>. Виявлено, що заморожений об'єкт мовчки ігнорує спроби змін (у strict mode вони викликали б помилку).</p>
-<p>Опановано масиви об'єктів: доступ до елементів за індексом і обчислення підсумків циклом <code>for...of</code>. Застосовано деструктуризацію — значення за замовчуванням, деструктуризацію в параметрах функції та вкладену деструктуризацію з перейменуванням для відповіді сервера, що робить код компактнішим і читабельнішим.</p>
-<p>Засвоєно принцип callback-функцій: функція передається як аргумент іншій функції й викликається всередині неї, завдяки чому загальний алгоритм відокремлюється від конкретної дії. Стрілочні функції дозволяють записувати такі callback коротко, зокрема з неявним поверненням результату; їх використано з <code>addEventListener()</code> та таймерами <code>setInterval()</code> / <code>clearInterval()</code>.</p>
-<p>Перебираючі методи <code>filter()</code>, <code>findIndex()</code>, <code>map()</code> і <code>reduce()</code> разом зі стрілочними функціями дозволили опрацьовувати масиви об'єктів без громіздких циклів: <code>filter()</code> та <code>map()</code> повертають новий масив і не змінюють початковий, <code>findIndex()</code> повертає індекс або <code>-1</code>, а <code>reduce()</code> згортає масив в одне значення. У комплексному завданні ці методи поєднано в єдиний ланцюжок обробки даних.</p>
-</section>
-        </div>
+            <section id="topic-end" data-nav="ВИСНОВКИ">
+                <h3>ВИСНОВКИ</h3>
+                <p>Під час виконання лабораторної роботи було набуто практичних навичок роботи з об'єктами в JavaScript: створення літералів, доступу до властивостей через крапку, видалення властивостей оператором <code>delete</code> та роботи з методами <code>Object.entries()</code>, <code>Object.freeze()</code> і <code>Object.isFrozen()</code>. Виявлено, що заморожений об'єкт мовчки ігнорує спроби змін (у strict mode вони викликали б помилку).</p>
+                <p>Опановано масиви об'єктів: доступ до елементів за індексом і обчислення підсумків циклом <code>for...of</code>. Застосовано деструктуризацію — значення за замовчуванням, деструктуризацію в параметрах функції та вкладену деструктуризацію з перейменуванням для відповіді сервера, що робить код компактнішим і читабельнішим.</p>
+                <p>Засвоєно принцип callback-функцій: функція передається як аргумент іншій функції й викликається всередині неї, завдяки чому загальний алгоритм відокремлюється від конкретної дії. Стрілочні функції дозволяють записувати такі callback коротко, зокрема з неявним поверненням результату; їх використано з <code>addEventListener()</code> та таймерами <code>setInterval()</code> / <code>clearInterval()</code>.</p>
+                <p>Перебираючі методи <code>filter()</code>, <code>findIndex()</code>, <code>map()</code> і <code>reduce()</code> разом зі стрілочними функціями дозволили опрацьовувати масиви об'єктів без громіздких циклів: <code>filter()</code> та <code>map()</code> повертають новий масив і не змінюють початковий, <code>findIndex()</code> повертає індекс або <code>-1</code>, а <code>reduce()</code> згортає масив в одне значення. У комплексному завданні ці методи поєднано в єдиний ланцюжок обробки даних.</p>
+            </section>
+        </main>
     </div>
+
+    <footer id="report-footer"></footer>
+
 </body>
 </html>

@@ -2,87 +2,49 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Звіт з лабораторних робіт</title>
-    <style>
-        body { font-family: 'Times New Roman', serif; margin: 0; padding: 15px; display: flex; flex-direction: column; min-height: 100vh; }
-        .header { text-align: center; margin-bottom: 20px; position: relative; }
-        .photo-box { position: absolute; top: 0; right: 20px; width: 100px; height: 130px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; }
-        .nav-horizontal { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-        .nav-horizontal a { padding: 15px 10px; border: 1px solid #000; border-radius: 10px; text-decoration: none; color: #000; font-size: 14px; text-align: center; }
-        .nav-horizontal a.active { background-color: #ffff99; font-weight: bold; }
-        .layout { display: flex; gap: 20px; flex: 1; }
-        .sidebar { width: 280px; display: flex; flex-direction: column; gap: 10px; }
-        .sidebar a { padding: 15px; border: 1px solid #000; border-radius: 25px; text-decoration: none; color: #000; font-size: 14px; text-align: center; background: #fff; }
-        .main-content { flex-grow: 1; border: 2px solid #000; padding: 20px; height: 70vh; overflow-y: auto; }
-        section { border-bottom: 1px dashed #ccc; padding-bottom: 30px; margin-bottom: 30px; }
-        pre { background: #f4f4f4; padding: 10px; border-left: 4px solid #333; overflow-x: auto; }
-        footer { text-align: center; margin-top: 20px; padding: 10px; border-top: 1px solid #ccc; font-size: 14px; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіт з лабораторної роботи №1</title>
+    <link rel="stylesheet" href="css/report.css">
+    <script src="js/report-shell.js" defer></script>
 </head>
-<body>
+<body data-lab="1">
 
-    <header class="header">
-        <h3>З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. FRONTEND РОЗРОБКИ»</h3>
-        <p><b>Виконавець: Студент групи ІО-45 Унятицький Антон</b></p>
-        <div class="photo-box" style="padding: 0; overflow: hidden;">
-            <img src="img/student.jpg" alt="Фото студента" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        </div>
-    </header>
+    <header id="report-header"></header>
+    <nav id="labs-nav" aria-label="Навігація по лабораторних роботах"></nav>
 
-    <nav class="nav-horizontal">
-        <a href="index.html" class="active">Лабораторна<br>робота №1</a>
-        <a href="lab2.html">Лабораторна<br>робота №2</a>
-        <a href="lab3.html">Лабораторна<br>робота №3</a>
-        <a href="lab4.html">Лабораторна<br>робота №4</a>
-        <a href="lab5.html">Лабораторна<br>робота №5</a>
-        <a href="#">Лабораторна<br>робота №6</a>
-        <a href="#">Лабораторна<br>робота №7</a>
-        <a href="#">Лабораторна<br>робота №8</a>
-        <a href="#">Лабораторна<br>робота №9</a>
-    </nav>
-
-    <div class="layout">
-        <aside class="sidebar">
-            <a href="#topic1">Тема Мета Місце розташування сайту, звіту</a>
-            <a href="#topic2">Опис предметного середовища. Опис бізнес-логіки</a>
-            <a href="#topic3">Структура документа</a>
-            <a href="#topic4">HTML-код ТАБЛИЦІ</a>
-            <a href="#topic5">HTML-код ЗОБРАЖЕННЯ</a>
-            <a href="#topic6">HTML-код ФОРМИ</a>
-            <a href="#topic7">HTML-код СПИСКІВ</a>
-            <a href="#topic8">Висновки</a>
-        </aside>
+    <div class="report-layout">
+        <aside id="sidebar" class="sidebar" aria-label="Зміст звіту"></aside>
 
         <main class="main-content">
-            <h2 style="text-align:center;">Місце виведення інформації</h2>
+            <h2 style="text-align:center;">Звіт з Лабораторної роботи №1</h2>
 
-            <section id="topic1">
+            <section id="topic1" data-nav="Тема, Мета, Місце розташування">
                 <h3>Тема, Мета, Місце розташування</h3>
-                <p><b>Тема:</b> ТЕГИ ТА АТРИБУТИ HTML-ДОКУМЕНТА. СТРУКТУРНА РОЗМІТКА. GIT.GITHUB. РОБОТА З РЕПОЗИТОРІЯМИ.</p>
-                <p><b>Мета:</b> придбати практичні навички роботи з GitHub, репозиторіями, HTML-документом, таблицями, зображеннями, посиланнями, списками, формами.</p>
+                <p><strong>Тема:</strong> ТЕГИ ТА АТРИБУТИ HTML-ДОКУМЕНТА. СТРУКТУРНА РОЗМІТКА. GIT.GITHUB. РОБОТА З РЕПОЗИТОРІЯМИ.</p>
+                <p><strong>Мета:</strong> Придбати практичні навички роботи з GitHub, репозиторіями, HTML-документом, таблицями, зображеннями, посиланнями, списками, формами.</p>
                 <ul>
-                    <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026" target="_blank">Посилання на репозиторій власного WEB-застосунку</a></li>
-                    <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Посилання на живу сторінку власного WEB-застосунку</a></li>
-                    <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026" target="_blank">Посилання на репозиторій звітного HTML-документа</a></li>
-                    <li><a href="https://kpiwebb.github.io/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Посилання на живу сторінку звітного HTML-документ</a></li>
-                    <li><a href="https://github.com/KpiWebb/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026" target="_blank">Посилання на репозиторій з самостійними роботами</a></li>
-                    <li><a href="https://kpiwebb.github.io/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Посилання на живу сторінку з самостійними роботами</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026" target="_blank" rel="noopener noreferrer">Посилання на репозиторій власного WEB-застосунку</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/" target="_blank" rel="noopener noreferrer">Посилання на живу сторінку власного WEB-застосунку</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026" target="_blank" rel="noopener noreferrer">Посилання на репозиторій звітного HTML-документа</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026/" target="_blank" rel="noopener noreferrer">Посилання на живу сторінку звітного HTML-документа</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026" target="_blank" rel="noopener noreferrer">Посилання на репозиторій з самостійними роботами</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026/" target="_blank" rel="noopener noreferrer">Посилання на живу сторінку з самостійними роботами</a></li>
                 </ul>
             </section>
 
-            <section id="topic2">
+            <section id="topic2" data-nav="Опис предметного середовища та бізнес-логіки">
                 <h3>Опис предметного середовища. Опис бізнес-логіки</h3>
-                <p>Дані винесені на окрему сторінку `logic.html` у головному застосунку. Застосунок є інтернет-магазином електроніки TechStore, що дозволяє переглядати каталог товарів, їх технічні характеристики та здійснювати реєстрацію користувачів.</p>
+                <p>Дані винесені на окрему сторінку <code>logic.html</code> у головному застосунку. Застосунок є інтернет-магазином електроніки TechStore, що дозволяє переглядати каталог товарів, їх технічні характеристики та здійснювати реєстрацію користувачів.</p>
             </section>
 
-            <section id="topic3">
+            <section id="topic3" data-nav="Структура документа">
                 <h3>Структура документа</h3>
                 <p>Головна сторінка WEB-застосунку містить семантичну структуру HTML5 (теги <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>). Використано теги заголовків <code>&lt;h1&gt;-&lt;h2&gt;</code>, форму реєстрації <code>&lt;form&gt;</code>, списки <code>&lt;ul&gt;, &lt;ol&gt;</code>, таблицю характеристик <code>&lt;table&gt;</code> та зображення товару <code>&lt;img&gt;</code>.</p>
             </section>
 
-            <section id="topic4">
+            <section id="topic4" data-nav="HTML-код ТАБЛИЦІ">
                 <h3>HTML-код ТАБЛИЦІ</h3>
-                <img src="img/table.png" alt="Таблиця" width="250">
+                <img src="img/table.png" alt="Таблиця" class="screenshot" style="max-width: 250px;">
                 <pre><code>&lt;table border="1" cellpadding="8" cellspacing="0"&gt;
     &lt;tr&gt;
         &lt;th&gt;Характеристика&lt;/th&gt;
@@ -97,17 +59,17 @@
                 <p>Тег <code>&lt;table&gt;</code> є контейнером для таблиці. <code>&lt;tr&gt;</code> створює рядок, <code>&lt;th&gt;</code> визначає заголовок стовпця (текст у ньому жирний та вирівняний по центру), а <code>&lt;td&gt;</code> використовується для звичайних комірок з даними.</p>
             </section>
 
-            <section id="topic5">
+            <section id="topic5" data-nav="HTML-код ЗОБРАЖЕННЯ">
                 <h3>HTML-код ЗОБРАЖЕННЯ</h3>
-                <img src="img/image.png" alt="Зображення" width="250">
+                <img src="img/image.png" alt="Зображення" class="screenshot" style="max-width: 250px;">
                 <pre><code>&lt;img src="img/noute.jpg" alt="Фото Lenovo ThinkBook 14" width="300"&gt;</code></pre>
                 <h4>Теорія:</h4>
                 <p>Тег <code>&lt;img&gt;</code> не потребує закриваючого тегу. Атрибут <code>src</code> вказує шлях до файлу, <code>alt</code> містить альтернативний текст (якщо зображення не завантажиться), а <code>width</code> та <code>height</code> задають розміри.</p>
             </section>
 
-            <section id="topic6">
+            <section id="topic6" data-nav="HTML-код ФОРМИ">
                 <h3>HTML-код ФОРМИ</h3>
-                <img src="img/form.png" alt="Форма" width="250">
+                <img src="img/form.png" alt="Форма" class="screenshot" style="max-width: 250px;">
                 <pre><code>&lt;form action="#" method="POST"&gt;
     &lt;label for="email"&gt;Email:&lt;/label&gt;
     &lt;input type="email" id="email" name="email" required&gt;
@@ -115,9 +77,9 @@
 &lt;/form&gt;</code></pre>
             </section>
 
-            <section id="topic7">
+            <section id="topic7" data-nav="HTML-код СПИСКІВ">
                 <h3>HTML-код СПИСКІВ</h3>
-                <img src="img/list.png" alt="Списки" width="250">
+                <img src="img/list.png" alt="Списки" class="screenshot" style="max-width: 250px;">
                 <pre><code>&lt;ul&gt;
     &lt;li&gt;Ноутбуки та комп'ютери&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
@@ -125,17 +87,14 @@
                 <p>Тег <code>&lt;ul&gt;</code> створює маркірований список, а <code>&lt;ol&gt;</code> — нумерований. Елементи обох типів списків створюються за допомогою тегу <code>&lt;li&gt;</code>.</p>
             </section>
 
-            <section id="topic8">
+            <section id="topic8" data-nav="Висновки">
                 <h3>Висновки</h3>
                 <p>Під час виконання лабораторної роботи було набуто практичних навичок створення базової семантичної структури HTML-документа, роботи з тегами таблиць, списків, форм та зображень. Було успішно налаштовано середовище розробки, створено локальні та віддалені репозиторії на базі Git/GitHub, а також налаштовано хостинг статичних сторінок за допомогою GitHub Pages.</p>
             </section>
-
         </main>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Звітний документ з WEB-розробки. Виконав студент групи ІО-45 Унятицький Антон</p>
-    </footer>
+    <footer id="report-footer"></footer>
 
 </body>
 </html>

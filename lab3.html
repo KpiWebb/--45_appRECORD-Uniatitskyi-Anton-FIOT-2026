@@ -4,143 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Звіт з лабораторної роботи №3</title>
-    <style>
-        body { font-family: 'Times New Roman', serif; margin: 0; padding: 15px; }
-        .header { text-align: center; margin-bottom: 20px; position: relative; }
-        .photo-box { position: absolute; top: 0; right: 20px; width: 100px; height: 130px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; overflow: hidden; }
-        .photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .nav-horizontal { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-        .nav-horizontal a { padding: 15px 10px; border: 1px solid #000; border-radius: 10px; text-decoration: none; color: #000; font-size: 14px; text-align: center; }
-        .nav-horizontal a.active { background-color: #ffff99; font-weight: bold; }
-        .layout { display: flex; gap: 20px; }
-        .sidebar { width: 280px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
-        .sidebar a { padding: 15px; border: 1px solid #000; border-radius: 25px; text-decoration: none; color: #000; font-size: 14px; text-align: center; background: #fff; }
-        .main-content { flex-grow: 1; min-width: 0; border: 2px solid #000; padding: 20px; height: 70vh; overflow-y: auto; }
-        section { border-bottom: 1px dashed #ccc; padding-bottom: 30px; margin-bottom: 30px; }
-        pre { background: #f4f4f4; padding: 10px; border-left: 4px solid #333; overflow-x: auto; font-family: monospace; font-size: 13px; }
-        .screenshot { max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0; display: block; }
-        figure { margin: 10px 0; }
-        figcaption { font-size: 14px; font-style: italic; }
-        .scroll-x { overflow-x: auto; margin-bottom: 15px; }
-        .live-frame { width: 100%; height: 600px; border: 1px solid #333; }
-
-        .t3-fixed { width: 800px; }
-        .t3-fluid { width: 100%; }
-        .t3 { table-layout: fixed; border-collapse: collapse; text-align: center;
-               font-weight: bold; font-size: 24px; }
-        .t3 td { border: 2px solid #333; }
-        .col-l { width: 25%; } .col-m { width: 50%; } .col-r { width: 25%; }
-        .h60 { height: 60px; } .h50 { height: 50px; }
-        .c-yellow { background: #f1c40f; }
-        .c-blue   { background: #2980b9; color: #fff; }
-        .c-red    { background: #e74c3c; color: #fff; }
-        .c-white  { background: #fff; }
-        .c3-in  { display: flex; flex-direction: column; height: 250px; }
-        .c3-in span { flex: 1; display: flex; align-items: center; justify-content: center; }
-        .c3-red { height: 40px; margin: 0 10px 10px; }
-
-        .fl-fixed { width: 800px; }
-        .fl-fluid { width: 100%; }
-        .fl-wrap { border: 2px solid #333; overflow: hidden; background: #fff;
-                   font-weight: bold; font-size: 24px; text-align: center; }
-        .fl-header, .fl-footer { background: #f1c40f; padding: 20px 0; }
-        .fl-middle { overflow: hidden; }
-        .fl-left   { float: left;  width: 30%; height: 300px; background: #2980b9; color: #fff; padding-top: 130px; }
-        .fl-center { float: left;  width: 40%; height: 300px; padding: 10px; }
-        .fl-right  { float: right; width: 30%; height: 300px; background: #2980b9; color: #fff; padding-top: 130px; }
-        .fl-center-top    { height: 75%; padding-top: 90px; border: 2px solid #ccc; }
-        .fl-center-bottom { height: 20%; margin-top: 5%; background: #e74c3c; }
-        .fl-footer { clear: both; }
-
-        @media screen and (max-width: 992px) {
-            .layout { flex-direction: column; }
-            .sidebar { width: auto; flex-direction: row; flex-wrap: wrap; }
-            .sidebar a { flex: 1 1 14rem; border-radius: 15px; }
-            .main-content { height: auto; }
-        }
-
-        @media screen and (max-width: 640px) {
-            body { padding: 8px; }
-            .header h3 { font-size: 1rem; }
-            .photo-box { position: static; margin: 0 auto 10px; }
-            .nav-horizontal a { padding: 8px 6px; font-size: 12px; }
-            .main-content { padding: 10px; }
-        }
-
-        @media screen and (max-height: 500px) and (orientation: landscape),
-               screen and (max-width: 360px) {
-            .header h3 { font-size: 0.85rem; }
-            .main-content { height: auto; }
-        }
-
-        @media not print {
-            .sidebar a { transition: background 0.2s; }
-            .sidebar a:hover { background: #ffff99; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/report.css">
+    <script src="js/report-shell.js" defer></script>
 </head>
-<body>
+<body data-lab="3">
 
-    <div class="header">
-        <h3>З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. FRONTEND РОЗРОБКИ»</h3>
-        <p><b>Студенти групи ІО-45 Унятицький Антон</b></p>
-        <div class="photo-box">
-            <img src="img/student.jpg" alt="Фото студента">
-        </div>
-    </div>
+    <header id="report-header"></header>
+    <nav id="labs-nav" aria-label="Навігація по лабораторних роботах"></nav>
 
-    <div class="nav-horizontal">
-        <a href="index.html">Лабораторна<br>робота №1</a>
-        <a href="lab2.html">Лабораторна<br>робота №2</a>
-        <a href="lab3.html" class="active">Лабораторна<br>робота №3</a>
-        <a href="lab4.html">Лабораторна<br>робота №4</a>
-        <a href="lab5.html">Лабораторна<br>робота №5</a>
-        <a href="#">Лабораторна<br>робота №6</a>
-        <a href="#">Лабораторна<br>робота №7</a>
-        <a href="#">Лабораторна<br>робота №8</a>
-        <a href="#">Лабораторна<br>робота №9</a>
-    </div>
+    <div class="report-layout">
+        <aside id="sidebar" class="sidebar" aria-label="Зміст звіту"></aside>
 
-    <div class="layout">
-        <div class="sidebar">
-            <a href="#topic1">Тема, Мета. Місце розташування сайту, звіту</a>
-            <a href="#topic2">ЗАВДАННЯ №1. Зовнішній вигляд макету</a>
-            <a href="#topic2code">ЗАВДАННЯ №1. HTML-код та CSS-код макету</a>
-            <a href="#topic3">ЗАВДАННЯ №2. Фіксована таблична верстка</a>
-            <a href="#topic4">Гумова таблична верстка</a>
-            <a href="#topic5">Фіксована блокова верстка</a>
-            <a href="#topic6">Гумова блокова верстка</a>
-            <a href="#topic7">ЗАВДАННЯ №3 FLEXBOX. Зовнішній вигляд сторінки</a>
-            <a href="#topic8">HTML-код та CSS-код сторінки FLEXBOX</a>
-            <a href="#topic10">Адаптивна верстка: десктоп, планшет, мобільна версія</a>
-            <a href="#topic9">ВИСНОВКИ</a>
-        </div>
-
-        <div class="main-content">
+        <main class="main-content">
             <h2 style="text-align:center;">Звіт з Лабораторної роботи №3</h2>
 
-            <section id="topic1">
+            <section id="topic1" data-nav="Тема, Мета. Місце розташування сайту, звіту">
                 <h3>Тема, мета. Місце розташування сайту, звіту</h3>
-                <p><b>Тема:</b> ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА. ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX. АДАПТИВНА ВЕРСТКА. МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT</p>
-                <p><b>Мета:</b> Придбати практичні навички верстки сторінок засобами CSS, верстки на основі плаваючих елементів (float) та технології Flexbox. З'ясувати переваги та недоліки макетів, застосувати медіа-запити для адаптивної верстки.</p>
-                <p><b>Репозиторії:</b></p>
+                <p><strong>Тема:</strong> ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА. ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX. АДАПТИВНА ВЕРСТКА. МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT</p>
+                <p><strong>Мета:</strong> Придбати практичні навички верстки сторінок засобами CSS, верстки на основі плаваючих елементів (float) та технології Flexbox. З'ясувати переваги та недоліки макетів, застосувати медіа-запити для адаптивної верстки.</p>
+                <p><strong>Репозиторії:</strong></p>
                 <ul>
-                    <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій власного WEB-застосунку</a></li>
-                    <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій звітного HTML-документа</a></li>
-                    <li><a href="https://github.com/KpiWebb/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026" target="_blank">Репозиторій Резюме (самостійна робота)</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_appWEB-Uniatitskyi-Anton-FIOT-2026" target="_blank" rel="noopener noreferrer">Репозиторій власного WEB-застосунку</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026" target="_blank" rel="noopener noreferrer">Репозиторій звітного HTML-документа</a></li>
+                    <li><a href="https://github.com/KpiWebb/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026" target="_blank" rel="noopener noreferrer">Репозиторій Резюме (самостійна робота)</a></li>
                 </ul>
-                <p><b>Живі сторінки:</b></p>
+                <p><strong>Живі сторінки:</strong></p>
                 <ul>
-                    <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Власний WEB-застосунок (TechStore)</a></li>
-                    <li><a href="https://kpiwebb.github.io/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026/lab3.html" target="_blank">Даний звіт (ЛР №3)</a></li>
-                    <li><a href="lab3/index.html" target="_blank">Сторінка Завдання №3 (Flexbox)</a></li>
-                    <li><a href="https://kpiwebb.github.io/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026/" target="_blank">Резюме (самостійна робота)</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_appWEB-Uniatitskyi-Anton-FIOT-2026/" target="_blank" rel="noopener noreferrer">Власний WEB-застосунок (TechStore)</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_appRECORD-Uniatitskyi-Anton-FIOT-2026/lab3.html" target="_blank" rel="noopener noreferrer">Даний звіт (ЛР №3)</a></li>
+                    <li><a href="lab3/index.html" target="_blank" rel="noopener noreferrer">Сторінка Завдання №3 (Flexbox)</a></li>
+                    <li><a href="https://kpiwebb.github.io/--45_INDEPENDENT-Uniatitskyi-Anton-FIOT-2026/" target="_blank" rel="noopener noreferrer">Резюме (самостійна робота)</a></li>
                 </ul>
             </section>
 
-            <section id="topic2">
+            <section id="topic2" data-nav="ЗАВДАННЯ №1. Зовнішній вигляд макету">
                 <h3>ЗАВДАННЯ №1. Зовнішній вигляд макету</h3>
-                <p>У WEB-застосунку використано <b>комбінований адаптивний макет</b>: на десктопі це двоколонкова сітка CSS Grid із фіксованим сайдбаром (<code>320px</code>) та гнучкою основною колонкою (<code>1fr</code>). За допомогою медіа-запитів (<code>@media</code>) на планшеті (до 992px) і смартфоні (до 768px) макет перебудовується в одну колонку, а навігація перетворюється на «бургер-меню», яке плавно розкривається (<code>max-height</code> + <code>transition</code>) без JavaScript — на прихованому <code>checkbox</code> та селекторі <code>:checked</code>.</p>
+                <p>У WEB-застосунку використано <strong>комбінований адаптивний макет</strong>: на десктопі це двоколонкова сітка CSS Grid із фіксованим сайдбаром (<code>320px</code>) та гнучкою основною колонкою (<code>1fr</code>). За допомогою медіа-запитів (<code>@media</code>) на планшеті (до 992px) і смартфоні (до 768px) макет перебудовується в одну колонку, а навігація перетворюється на «бургер-меню», яке плавно розкривається (<code>max-height</code> + <code>transition</code>) без JavaScript — на прихованому <code>checkbox</code> та селекторі <code>:checked</code>.</p>
                 <p>Семантичні компоненти: <code>header</code> (логотип і навігація), <code>main</code> (картки з реєстрацією, категоріями та товаром), <code>footer</code> (довідкова інформація). Для гнучкості використано відносні одиниці: <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code> (через <code>clamp()</code>), <code>vh</code>. Ефекти: плавна поява карток (<code>@keyframes fadeUp</code>), зміна стану елементів при наведенні, плавне відкриття меню.</p>
 
                 <figure>
@@ -157,55 +56,55 @@
                 </figure>
             </section>
 
-            <section id="topic2code">
+            <section id="topic2code" data-nav="ЗАВДАННЯ №1. HTML-код та CSS-код макету">
                 <h3>ЗАВДАННЯ №1. HTML-код та CSS-код головної сторінки</h3>
-                <p><b>index.html</b></p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;uk&quot;&gt;
+                <p><strong>index.html</strong></p>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="uk"&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;TechStore - Інтернет-магазин&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;header&gt;
-        &lt;div class=&quot;header-container&quot;&gt;
+        &lt;div class="header-container"&gt;
             &lt;div&gt;
                 &lt;h1&gt;TechStore&lt;/h1&gt;
                 &lt;p&gt;Сучасна техніка для кожного&lt;/p&gt;
             &lt;/div&gt;
 
-            &lt;input type=&quot;checkbox&quot; id=&quot;menu-toggle&quot; class=&quot;menu-toggle&quot;&gt;
-            &lt;label for=&quot;menu-toggle&quot; class=&quot;burger-icon&quot; aria-label=&quot;Меню&quot;&gt;
+            &lt;input type="checkbox" id="menu-toggle" class="menu-toggle"&gt;
+            &lt;label for="menu-toggle" class="burger-icon" aria-label="Меню"&gt;
                 &lt;span&gt;&lt;/span&gt;
                 &lt;span&gt;&lt;/span&gt;
                 &lt;span&gt;&lt;/span&gt;
             &lt;/label&gt;
 
-            &lt;nav class=&quot;main-nav&quot;&gt;
-                &lt;a href=&quot;#&quot; class=&quot;header-link&quot;&gt;Головна&lt;/a&gt;
-                &lt;a href=&quot;#&quot; class=&quot;header-link&quot;&gt;Каталог товарів&lt;/a&gt;
-                &lt;a href=&quot;logic.html&quot; class=&quot;header-link&quot;&gt;Опис бізнес-логіки &amp;rarr;&lt;/a&gt;
+            &lt;nav class="main-nav"&gt;
+                &lt;a href="#" class="header-link"&gt;Головна&lt;/a&gt;
+                &lt;a href="#" class="header-link"&gt;Каталог товарів&lt;/a&gt;
+                &lt;a href="logic.html" class="header-link"&gt;Опис бізнес-логіки &amp;rarr;&lt;/a&gt;
             &lt;/nav&gt;
         &lt;/div&gt;
     &lt;/header&gt;
 
     &lt;main&gt;
-        &lt;div class=&quot;layout-grid&quot;&gt;
-            &lt;aside class=&quot;sidebar-area&quot;&gt;
-                &lt;form id=&quot;register-form&quot; action=&quot;#&quot; method=&quot;POST&quot; class=&quot;card&quot;&gt;
+        &lt;div class="layout-grid"&gt;
+            &lt;aside class="sidebar-area"&gt;
+                &lt;form id="register-form" action="#" method="POST" class="card"&gt;
                     &lt;h2&gt;Реєстрація&lt;/h2&gt;
-                    &lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
-                    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;mail@example.com&quot; required&gt;
-                    &lt;label for=&quot;password&quot;&gt;Пароль:&lt;/label&gt;
-                    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
-                    &lt;button type=&quot;submit&quot;&gt;Зареєструватися&lt;/button&gt;
+                    &lt;label for="email"&gt;Email:&lt;/label&gt;
+                    &lt;input type="email" id="email" name="email" placeholder="mail@example.com" required&gt;
+                    &lt;label for="password"&gt;Пароль:&lt;/label&gt;
+                    &lt;input type="password" id="password" name="password" required&gt;
+                    &lt;button type="submit"&gt;Зареєструватися&lt;/button&gt;
                 &lt;/form&gt;
 
-                &lt;div class=&quot;card&quot;&gt;
+                &lt;div class="card"&gt;
                     &lt;h2&gt;Категорії&lt;/h2&gt;
-                    &lt;ul class=&quot;category-list&quot;&gt;
+                    &lt;ul class="category-list"&gt;
                         &lt;li&gt;Ноутбуки та ПК&lt;/li&gt;
                         &lt;li&gt;Смартфони&lt;/li&gt;
                         &lt;li&gt;Аудіотехніка&lt;/li&gt;
@@ -214,13 +113,13 @@
                 &lt;/div&gt;
             &lt;/aside&gt;
 
-            &lt;section class=&quot;content-area&quot;&gt;
-                &lt;div class=&quot;card&quot;&gt;
+            &lt;section class="content-area"&gt;
+                &lt;div class="card"&gt;
                     &lt;h2&gt;Хіт продажу: Lenovo ThinkBook 14&lt;/h2&gt;
-                    &lt;div class=&quot;product-showcase&quot;&gt;
-                        &lt;img src=&quot;img/noute.jpg&quot; alt=&quot;Фото Lenovo ThinkBook 14&quot; class=&quot;product-img&quot;&gt;
+                    &lt;div class="product-showcase"&gt;
+                        &lt;img src="img/noute.jpg" alt="Фото Lenovo ThinkBook 14" class="product-img"&gt;
 
-                        &lt;table class=&quot;tech-table&quot;&gt;
+                        &lt;table class="tech-table"&gt;
                             &lt;tr&gt;&lt;th&gt;Характеристика&lt;/th&gt;&lt;th&gt;Значення&lt;/th&gt;&lt;/tr&gt;
                             &lt;tr&gt;&lt;td&gt;Процесор&lt;/td&gt;&lt;td&gt;Intel Core i7&lt;/td&gt;&lt;/tr&gt;
                             &lt;tr&gt;&lt;td&gt;Оперативна пам&#x27;ять&lt;/td&gt;&lt;td&gt;32 GB&lt;/td&gt;&lt;/tr&gt;
@@ -238,11 +137,12 @@
     &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                <p><b>css/style.css</b></p>
-<pre><code>* { margin: 0; padding: 0; box-sizing: border-box; }
+
+                <p><strong>css/style.css</strong></p>
+                <pre><code>* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: &#x27;Segoe UI&#x27;, Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f6;
     color: #333;
     display: flex;
@@ -323,19 +223,19 @@ main h2 { color: #2c3e50; margin-bottom: 1rem; border-bottom: 2px solid #3498db;
 .tech-table tr:nth-child(even) { background-color: #f9f9f9; }
 .tech-table tr:hover { background-color: #e8f4f8; transition: background 0.2s; }
 
-input[type=&quot;email&quot;], input[type=&quot;password&quot;] {
+input[type="email"], input[type="password"] {
     width: 100%; padding: 0.8rem; margin-top: 5px; margin-bottom: 1rem;
     border: 2px solid #ccc; border-radius: 4px; outline: none; transition: border 0.3s;
 }
-input[type=&quot;email&quot;]:focus, input[type=&quot;password&quot;]:focus { border-color: #3498db; }
+input[type="email"]:focus, input[type="password"]:focus { border-color: #3498db; }
 
-button[type=&quot;submit&quot;] {
+button[type="submit"] {
     background-color: #2ecc71; color: white; padding: 0.8rem;
     border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: bold;
     transition: background 0.3s, transform 0.1s; width: 100%;
 }
-button[type=&quot;submit&quot;]:hover { background-color: #27ae60; }
-button[type=&quot;submit&quot;]:active { transform: scale(0.98); }
+button[type="submit"]:hover { background-color: #27ae60; }
+button[type="submit"]:active { transform: scale(0.98); }
 
 footer {
     background-color: #2c3e50; color: white; text-align: center;
@@ -410,62 +310,66 @@ footer {
 }</code></pre>
             </section>
 
-            <section id="topic3">
+            <section id="topic3" data-nav="ЗАВДАННЯ №2. Фіксована таблична верстка">
                 <h3>ЗАВДАННЯ №2. Фіксована таблична верстка (варіант 3)</h3>
-                <p>Макет побудовано таблицею з фіксованою шириною <code>800px</code>. Блок 2 займає лівий стовпчик на дві рядки (<code>rowspan="2"</code>), червона смуга перекриває блоки 3 і 4 (<code>colspan="2"</code>), шапка та підвал розтягнуті на три стовпці (<code>colspan="3"</code>). Ширини стовпців задано через <code>&lt;colgroup&gt;</code>.</p>
-                <div class="scroll-x"><table class="t3 t3-fixed">
-  <colgroup>
-    <col class="col-l"><col class="col-m"><col class="col-r">
-  </colgroup>
-  <tr>
-    <td colspan="3" class="c-yellow h60">1</td>
-  </tr>
-  <tr>
-    <td rowspan="2" class="c-blue">2</td>
-    <td colspan="2" class="c-red h50"></td>
-  </tr>
-  <tr>
-    <td class="c-white">
-      <div class="c3-in">
-        <span>3</span>
-        <div class="c-red c3-red"></div>
-      </div>
-    </td>
-    <td class="c-blue">4</td>
-  </tr>
-  <tr>
-    <td colspan="3" class="c-yellow h60">5</td>
-  </tr>
-</table></div>
-                <p><b>HTML:</b></p>
-                <pre><code>&lt;table class=&quot;t3 t3-fixed&quot;&gt;
+                <p>Макет побудовано таблицею з фіксованою шириною <code>800px</code>. Блок 2 займає лівий стовпчик на два рядки (<code>rowspan="2"</code>), червона смуга перекриває блоки 3 і 4 (<code>colspan="2"</code>), шапка та підвал розтягнуті на три стовпці (<code>colspan="3"</code>). Ширини стовпців задано через <code>&lt;colgroup&gt;</code>.</p>
+                
+                <div class="scroll-x">
+                    <table class="t3 t3-fixed">
+                        <colgroup>
+                            <col class="col-l"><col class="col-m"><col class="col-r">
+                        </colgroup>
+                        <tr>
+                            <td colspan="3" class="c-yellow h60">1</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="c-blue">2</td>
+                            <td colspan="2" class="c-red h50"></td>
+                        </tr>
+                        <tr>
+                            <td class="c-white">
+                                <div class="c3-in">
+                                    <span>3</span>
+                                    <div class="c-red c3-red"></div>
+                                </div>
+                            </td>
+                            <td class="c-blue">4</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="c-yellow h60">5</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>HTML:</strong></p>
+                <pre><code>&lt;table class="t3 t3-fixed"&gt;
   &lt;colgroup&gt;
-    &lt;col class=&quot;col-l&quot;&gt;&lt;col class=&quot;col-m&quot;&gt;&lt;col class=&quot;col-r&quot;&gt;
+    &lt;col class="col-l"&gt;&lt;col class="col-m"&gt;&lt;col class="col-r"&gt;
   &lt;/colgroup&gt;
   &lt;tr&gt;
-    &lt;td colspan=&quot;3&quot; class=&quot;c-yellow h60&quot;&gt;1&lt;/td&gt;
+    &lt;td colspan="3" class="c-yellow h60"&gt;1&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; class=&quot;c-blue&quot;&gt;2&lt;/td&gt;
-    &lt;td colspan=&quot;2&quot; class=&quot;c-red h50&quot;&gt;&lt;/td&gt;
+    &lt;td rowspan="2" class="c-blue"&gt;2&lt;/td&gt;
+    &lt;td colspan="2" class="c-red h50"&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class=&quot;c-white&quot;&gt;
-      &lt;div class=&quot;c3-in&quot;&gt;
+    &lt;td class="c-white"&gt;
+      &lt;div class="c3-in"&gt;
         &lt;span&gt;3&lt;/span&gt;
-        &lt;div class=&quot;c-red c3-red&quot;&gt;&lt;/div&gt;
+        &lt;div class="c-red c3-red"&gt;&lt;/div&gt;
       &lt;/div&gt;
     &lt;/td&gt;
-    &lt;td class=&quot;c-blue&quot;&gt;4&lt;/td&gt;
+    &lt;td class="c-blue"&gt;4&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td colspan=&quot;3&quot; class=&quot;c-yellow h60&quot;&gt;5&lt;/td&gt;
+    &lt;td colspan="3" class="c-yellow h60"&gt;5&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;</code></pre>
-                <p><b>CSS:</b></p>
+
+                <p><strong>CSS:</strong></p>
                 <pre><code>.t3-fixed { width: 800px; }
-.t3 { table-layout: fixed; border-collapse: collapse; text-align: center;
-       font-weight: bold; font-size: 24px; }
+.t3 { table-layout: fixed; border-collapse: collapse; text-align: center; font-weight: bold; font-size: 24px; }
 .t3 td { border: 2px solid #333; }
 .col-l { width: 25%; } .col-m { width: 50%; } .col-r { width: 25%; }
 .h60 { height: 60px; } .h50 { height: 50px; }
@@ -478,70 +382,78 @@ footer {
 .c3-red { height: 40px; margin: 0 10px 10px; }</code></pre>
             </section>
 
-            <section id="topic4">
+            <section id="topic4" data-nav="Гумова таблична верстка">
                 <h3>Гумова таблична верстка (варіант 3)</h3>
                 <p>Та сама розмітка, але таблиця має ширину <code>100%</code>, тому розтягується разом із вікном браузера, а стовпці зберігають пропорції 25% / 50% / 25%.</p>
-                <div class="scroll-x"><table class="t3 t3-fluid">
-  <colgroup>
-    <col class="col-l"><col class="col-m"><col class="col-r">
-  </colgroup>
-  <tr>
-    <td colspan="3" class="c-yellow h60">1</td>
-  </tr>
-  <tr>
-    <td rowspan="2" class="c-blue">2</td>
-    <td colspan="2" class="c-red h50"></td>
-  </tr>
-  <tr>
-    <td class="c-white">
-      <div class="c3-in">
-        <span>3</span>
-        <div class="c-red c3-red"></div>
-      </div>
-    </td>
-    <td class="c-blue">4</td>
-  </tr>
-  <tr>
-    <td colspan="3" class="c-yellow h60">5</td>
-  </tr>
-</table></div>
-                <p><b>Відмінність у CSS:</b></p>
+                
+                <div class="scroll-x">
+                    <table class="t3 t3-fluid">
+                        <colgroup>
+                            <col class="col-l"><col class="col-m"><col class="col-r">
+                        </colgroup>
+                        <tr>
+                            <td colspan="3" class="c-yellow h60">1</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="c-blue">2</td>
+                            <td colspan="2" class="c-red h50"></td>
+                        </tr>
+                        <tr>
+                            <td class="c-white">
+                                <div class="c3-in">
+                                    <span>3</span>
+                                    <div class="c-red c3-red"></div>
+                                </div>
+                            </td>
+                            <td class="c-blue">4</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="c-yellow h60">5</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>Відмінність у CSS:</strong></p>
                 <pre><code>.t3-fixed { width: 800px; }  /* фіксована */
 .t3-fluid { width: 100%; }   /* гумова */</code></pre>
             </section>
 
-            <section id="topic5">
+            <section id="topic5" data-nav="Фіксована блокова верстка">
                 <h3>Фіксована блокова верстка (float, варіант 4)</h3>
                 <p>Макет варіанту №4 (№3+1) виконано плаваючими блоками: <code>float: left</code> для блоків 2 і 3, <code>float: right</code> для блоку 4, <code>clear: both</code> для підвалу. Ширина контейнера фіксована — <code>800px</code>. Контейнер <code>.fl-middle</code> має <code>overflow: hidden</code>, щоб охоплювати плаваючі блоки.</p>
-                <div class="scroll-x"><div class="fl-wrap fl-fixed">
-  <div class="fl-header">1</div>
-  <div class="fl-middle">
-    <div class="fl-left">2</div>
-    <div class="fl-center">
-      <div class="fl-center-top">3</div>
-      <div class="fl-center-bottom"></div>
-    </div>
-    <div class="fl-right">4</div>
-  </div>
-  <div class="fl-footer">5</div>
-</div></div>
-                <p><b>HTML:</b></p>
-                <pre><code>&lt;div class=&quot;fl-wrap fl-fixed&quot;&gt;
-  &lt;div class=&quot;fl-header&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;fl-middle&quot;&gt;
-    &lt;div class=&quot;fl-left&quot;&gt;2&lt;/div&gt;
-    &lt;div class=&quot;fl-center&quot;&gt;
-      &lt;div class=&quot;fl-center-top&quot;&gt;3&lt;/div&gt;
-      &lt;div class=&quot;fl-center-bottom&quot;&gt;&lt;/div&gt;
+                
+                <div class="scroll-x">
+                    <div class="fl-wrap fl-fixed">
+                        <div class="fl-header">1</div>
+                        <div class="fl-middle">
+                            <div class="fl-left">2</div>
+                            <div class="fl-center">
+                                <div class="fl-center-top">3</div>
+                                <div class="fl-center-bottom"></div>
+                            </div>
+                            <div class="fl-right">4</div>
+                        </div>
+                        <div class="fl-footer">5</div>
+                    </div>
+                </div>
+
+                <p><strong>HTML:</strong></p>
+                <pre><code>&lt;div class="fl-wrap fl-fixed"&gt;
+  &lt;div class="fl-header"&gt;1&lt;/div&gt;
+  &lt;div class="fl-middle"&gt;
+    &lt;div class="fl-left"&gt;2&lt;/div&gt;
+    &lt;div class="fl-center"&gt;
+      &lt;div class="fl-center-top"&gt;3&lt;/div&gt;
+      &lt;div class="fl-center-bottom"&gt;&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;fl-right&quot;&gt;4&lt;/div&gt;
+    &lt;div class="fl-right"&gt;4&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;fl-footer&quot;&gt;5&lt;/div&gt;
+  &lt;div class="fl-footer"&gt;5&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                <p><b>CSS:</b></p>
+
+                <p><strong>CSS:</strong></p>
                 <pre><code>.fl-fixed { width: 800px; }
-.fl-wrap { border: 2px solid #333; overflow: hidden; background: #fff;
-           font-weight: bold; font-size: 24px; text-align: center; }
+.fl-wrap { border: 2px solid #333; overflow: hidden; background: #fff; font-weight: bold; font-size: 24px; text-align: center; }
 .fl-header, .fl-footer { background: #f1c40f; padding: 20px 0; }
 .fl-middle { overflow: hidden; }
 .fl-left   { float: left;  width: 30%; height: 300px; background: #2980b9; color: #fff; padding-top: 130px; }
@@ -552,28 +464,32 @@ footer {
 .fl-footer { clear: both; }</code></pre>
             </section>
 
-            <section id="topic6">
+            <section id="topic6" data-nav="Гумова блокова верстка">
                 <h3>Гумова блокова верстка (float, варіант 4)</h3>
                 <p>Та сама структура, але контейнер має ширину <code>100%</code>, а ширини колонок задано у відсотках (30% / 40% / 30%), тому макет розтягується разом із вікном.</p>
+                
                 <div class="fl-wrap fl-fluid">
-  <div class="fl-header">1</div>
-  <div class="fl-middle">
-    <div class="fl-left">2</div>
-    <div class="fl-center">
-      <div class="fl-center-top">3</div>
-      <div class="fl-center-bottom"></div>
-    </div>
-    <div class="fl-right">4</div>
-  </div>
-  <div class="fl-footer">5</div>
-</div>
+                    <div class="fl-header">1</div>
+                    <div class="fl-middle">
+                        <div class="fl-left">2</div>
+                        <div class="fl-center">
+                            <div class="fl-center-top">3</div>
+                            <div class="fl-center-bottom"></div>
+                        </div>
+                        <div class="fl-right">4</div>
+                    </div>
+                    <div class="fl-footer">5</div>
+                </div>
+
+                <p><strong>Відмінність у CSS:</strong></p>
                 <pre><code>.fl-fixed { width: 800px; }  /* фіксована */
 .fl-fluid { width: 100%; }   /* гумова */</code></pre>
             </section>
 
-            <section id="topic7">
+            <section id="topic7" data-nav="ЗАВДАННЯ №3 FLEXBOX. Зовнішній вигляд сторінки">
                 <h3>ЗАВДАННЯ №3 FLEXBOX. Зовнішній вигляд сторінки (варіант 3)</h3>
-                <p>Сторінку «Популярні напрямки курсів програмування» виконано технологією Flexbox: ряд карток курсів, галерея фото, блок «Від новачка до PRO-розробника» та оранжевий банер. Жива сторінка: <a href="lab3/index.html" target="_blank">lab3/index.html</a>.</p>
+                <p>Сторінку «Популярні напрямки курсів програмування» виконано технологією Flexbox: ряд карток курсів, галерея фото, блок «Від новачка до PRO-розробника» та оранжевий банер. Жива сторінка: <a href="lab3/index.html" target="_blank" rel="noopener noreferrer">lab3/index.html</a>.</p>
+                
                 <figure>
                     <img class="screenshot" src="img/lab3-task3.png" alt="Сторінка Завдання №3, виконана на Flexbox">
                     <figcaption>Рис. 4. Сторінка варіанту 3, виконана технологією Flexbox</figcaption>
@@ -581,92 +497,92 @@ footer {
                 <iframe class="live-frame" src="lab3/index.html" title="Сторінка Завдання №3 (Flexbox)"></iframe>
             </section>
 
-            <section id="topic8">
+            <section id="topic8" data-nav="HTML-код та CSS-код сторінки FLEXBOX">
                 <h3>HTML-код та CSS-код сторінки FLEXBOX</h3>
-                <p><b>index.html</b></p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;uk&quot;&gt;
+                <p><strong>index.html</strong></p>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="uk"&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;Курси програмування — Flexbox&lt;/title&gt;
-    &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;display=swap&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+    &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;display=swap"&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
 
     &lt;!-- 1. Напрями курсів --&gt;
-    &lt;section class=&quot;courses&quot;&gt;
-        &lt;h2 class=&quot;section-title&quot;&gt;Популярні напрямки&lt;span&gt;курсів програмування&lt;/span&gt;&lt;/h2&gt;
+    &lt;section class="courses"&gt;
+        &lt;h2 class="section-title"&gt;Популярні напрямки&lt;span&gt;курсів програмування&lt;/span&gt;&lt;/h2&gt;
 
-        &lt;div class=&quot;cards&quot;&gt;
-            &lt;article class=&quot;card&quot;&gt;
-                &lt;div class=&quot;card-body&quot;&gt;
-                    &lt;img src=&quot;img/js.png&quot; alt=&quot;JavaScript&quot; class=&quot;card-icon&quot;&gt;
-                    &lt;p class=&quot;badge&quot;&gt;Complex&lt;/p&gt;
+        &lt;div class="cards"&gt;
+            &lt;article class="card"&gt;
+                &lt;div class="card-body"&gt;
+                    &lt;img src="img/js.png" alt="JavaScript" class="card-icon"&gt;
+                    &lt;p class="badge"&gt;Complex&lt;/p&gt;
                     &lt;h3&gt;JavaScript&lt;/h3&gt;
-                    &lt;p class=&quot;subtitle&quot;&gt;Комплексний курс&lt;/p&gt;
-                    &lt;ul class=&quot;info&quot;&gt;
+                    &lt;p class="subtitle"&gt;Комплексний курс&lt;/p&gt;
+                    &lt;ul class="info"&gt;
                         &lt;li&gt;Стартовий рівень: початківець&lt;/li&gt;
                         &lt;li&gt;Тривалість: 5-11 місяців&lt;/li&gt;
                         &lt;li&gt;Ціна: від 14500 грн.&lt;/li&gt;
                     &lt;/ul&gt;
-                    &lt;p class=&quot;seats&quot;&gt;Залишилось 3 місця&lt;/p&gt;
+                    &lt;p class="seats"&gt;Залишилось 3 місця&lt;/p&gt;
                 &lt;/div&gt;
-                &lt;a href=&quot;#&quot; class=&quot;card-link&quot;&gt;Детальніше&lt;/a&gt;
+                &lt;a href="#" class="card-link"&gt;Детальніше&lt;/a&gt;
             &lt;/article&gt;
 
-            &lt;article class=&quot;card card-accent&quot;&gt;
-                &lt;div class=&quot;card-body&quot;&gt;
-                    &lt;img src=&quot;img/java.png&quot; alt=&quot;Java&quot; class=&quot;card-icon&quot;&gt;
-                    &lt;p class=&quot;badge&quot;&gt;Complex&lt;/p&gt;
+            &lt;article class="card card-accent"&gt;
+                &lt;div class="card-body"&gt;
+                    &lt;img src="img/java.png" alt="Java" class="card-icon"&gt;
+                    &lt;p class="badge"&gt;Complex&lt;/p&gt;
                     &lt;h3&gt;Java&lt;/h3&gt;
-                    &lt;p class=&quot;subtitle&quot;&gt;Комплексний курс&lt;/p&gt;
-                    &lt;ul class=&quot;info&quot;&gt;
+                    &lt;p class="subtitle"&gt;Комплексний курс&lt;/p&gt;
+                    &lt;ul class="info"&gt;
                         &lt;li&gt;Стартовий рівень: початківець&lt;/li&gt;
                         &lt;li&gt;Тривалість: 6-11 місяців&lt;/li&gt;
                         &lt;li&gt;Ціна: від 14500 грн&lt;/li&gt;
                     &lt;/ul&gt;
-                    &lt;p class=&quot;seats&quot;&gt;Залишилось 6 місць&lt;/p&gt;
+                    &lt;p class="seats"&gt;Залишилось 6 місць&lt;/p&gt;
                 &lt;/div&gt;
-                &lt;a href=&quot;#&quot; class=&quot;card-link&quot;&gt;Детальніше&lt;/a&gt;
+                &lt;a href="#" class="card-link"&gt;Детальніше&lt;/a&gt;
             &lt;/article&gt;
 
-            &lt;article class=&quot;card&quot;&gt;
-                &lt;div class=&quot;card-body&quot;&gt;
-                    &lt;img src=&quot;img/python.png&quot; alt=&quot;Python&quot; class=&quot;card-icon&quot;&gt;
-                    &lt;p class=&quot;badge&quot;&gt;Complex&lt;/p&gt;
+            &lt;article class="card"&gt;
+                &lt;div class="card-body"&gt;
+                    &lt;img src="img/python.png" alt="Python" class="card-icon"&gt;
+                    &lt;p class="badge"&gt;Complex&lt;/p&gt;
                     &lt;h3&gt;Python&lt;/h3&gt;
-                    &lt;p class=&quot;subtitle&quot;&gt;Комплексний курс&lt;/p&gt;
-                    &lt;ul class=&quot;info&quot;&gt;
+                    &lt;p class="subtitle"&gt;Комплексний курс&lt;/p&gt;
+                    &lt;ul class="info"&gt;
                         &lt;li&gt;Стартовий рівень: початківець&lt;/li&gt;
                         &lt;li&gt;Тривалість: 6-11 місяців&lt;/li&gt;
                         &lt;li&gt;Ціна: від 14500 грн&lt;/li&gt;
                     &lt;/ul&gt;
-                    &lt;p class=&quot;seats&quot;&gt;Залишилось 4 місця&lt;/p&gt;
+                    &lt;p class="seats"&gt;Залишилось 4 місця&lt;/p&gt;
                 &lt;/div&gt;
-                &lt;a href=&quot;#&quot; class=&quot;card-link&quot;&gt;Детальніше&lt;/a&gt;
+                &lt;a href="#" class="card-link"&gt;Детальніше&lt;/a&gt;
             &lt;/article&gt;
         &lt;/div&gt;
     &lt;/section&gt;
 
     &lt;!-- 2. Фотогалерея --&gt;
-    &lt;section class=&quot;gallery&quot;&gt;
-        &lt;img src=&quot;img/photo1.jpg&quot; alt=&quot;Студенти працюють разом за ноутбуком&quot;&gt;
-        &lt;img src=&quot;img/photo2.jpg&quot; alt=&quot;Студент пише код&quot;&gt;
-        &lt;img src=&quot;img/photo3.jpg&quot; alt=&quot;Студентка за ноутбуком&quot;&gt;
-        &lt;img src=&quot;img/photo4.jpg&quot; alt=&quot;Студент на занятті&quot;&gt;
+    &lt;section class="gallery"&gt;
+        &lt;img src="img/photo1.jpg" alt="Студенти працюють разом за ноутбуком"&gt;
+        &lt;img src="img/photo2.jpg" alt="Студент пише код"&gt;
+        &lt;img src="img/photo3.jpg" alt="Студентка за ноутбуком"&gt;
+        &lt;img src="img/photo4.jpg" alt="Студент на занятті"&gt;
     &lt;/section&gt;
 
     &lt;!-- 3. Від новачка до PRO --&gt;
-    &lt;section class=&quot;pro&quot;&gt;
-        &lt;div class=&quot;pro-photo&quot;&gt;
-            &lt;img src=&quot;img/girl.jpg&quot; alt=&quot;Усміхнена дівчина з папкою&quot;&gt;
+    &lt;section class="pro"&gt;
+        &lt;div class="pro-photo"&gt;
+            &lt;img src="img/girl.jpg" alt="Усміхнена дівчина з папкою"&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;pro-content&quot;&gt;
+        &lt;div class="pro-content"&gt;
             &lt;h2&gt;Від новачка до PRO-розробника&lt;/h2&gt;
-            &lt;div class=&quot;pro-text&quot;&gt;
+            &lt;div class="pro-text"&gt;
                 &lt;p&gt;Робота в IT - це високі зарплати, можливість віддаленої співпраці із закордонними компаніями і свобода вибору. Але є і мінуси. Низький старт - головний з них. Фахівцю без досвіду складно отримати робочий стаж, а зарплата коливається на рівні мінімальної.&lt;/p&gt;
                 &lt;p&gt;На курсах з інкубатором наші студенти отримують додаткових 5 місяців досвіду, який так сильно вимагають роботодавці.&lt;/p&gt;
                 &lt;p&gt;З таким резюме ви станете бажаним кандидатом для будь-якої компанії.&lt;/p&gt;
@@ -675,18 +591,19 @@ footer {
     &lt;/section&gt;
 
     &lt;!-- 4. Банер --&gt;
-    &lt;section class=&quot;banner&quot;&gt;
+    &lt;section class="banner"&gt;
         &lt;h2&gt;Навчайся зараз, сплачуй потім&lt;/h2&gt;
-        &lt;div class=&quot;banner-note&quot;&gt;
-            &lt;img src=&quot;img/check.png&quot; alt=&quot;&quot;&gt;
+        &lt;div class="banner-note"&gt;
+            &lt;img src="img/check.png" alt=""&gt;
             &lt;p&gt;Розстрочування на 24 місяці&lt;/p&gt;
         &lt;/div&gt;
     &lt;/section&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                <p><b>css/style.css</b></p>
-<pre><code>:root {
+
+                <p><strong>css/style.css</strong></p>
+                <pre><code>:root {
     --dark: #2a2a2a;
     --card: #212121;
     --orange: #ff9a3c;
@@ -700,7 +617,7 @@ footer {
 html { font-size: 16px; }
 
 body {
-    font-family: &#x27;Montserrat&#x27;, &#x27;Segoe UI&#x27;, Tahoma, sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, sans-serif;
     font-weight: 500;
     color: #222;
     line-height: 1.5;
@@ -844,7 +761,7 @@ img { display: block; max-width: 100%; }
 
 /* декоративні кути */
 .pro-text::before, .pro-text::after {
-    content: &#x27;&#x27;;
+    content: '';
     position: absolute;
     width: 3.5rem;
     height: 3.5rem;
@@ -916,25 +833,25 @@ img { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
 }</code></pre>
-                <p><b>Особливості макету:</b> ряд карток <code>.cards</code> — це flex-контейнер (<code>justify-content: space-between</code>, <code>gap</code>), а кожна картка має <code>flex: 1 1 0</code> і тому отримує рівну ширину. Усередині картки — другий flex-контейнер із <code>flex-direction: column</code>: тіло картки займає весь вільний простір (<code>flex: 1</code>), а кнопка «Детальніше» завжди притиснута донизу; рядок «Залишилось…» притиснуто через <code>margin-top: auto</code>. Галерея — flex-ряд із рівними фото, блок PRO — flex-ряд «фото + колонка тексту».</p>
+                <p><strong>Особливості макету:</strong> ряд карток <code>.cards</code> — це flex-контейнер (<code>justify-content: space-between</code>, <code>gap</code>), а кожна картка має <code>flex: 1 1 0</code> і тому отримує рівну ширину. Усередині картки — другий flex-контейнер із <code>flex-direction: column</code>: тіло картки займає весь вільний простір (<code>flex: 1</code>), а кнопка «Детальніше» завжди притиснута донизу; рядок «Залишилось…» притиснуто через <code>margin-top: auto</code>. Галерея — flex-ряд із рівними фото, блок PRO — flex-ряд «фото + колонка тексту».</p>
             </section>
 
-            <section id="topic10">
+            <section id="topic10" data-nav="Адаптивна верстка: десктоп, планшет, мобільна версія">
                 <h3>Адаптивна верстка: десктопна, планшетна та мобільна версії</h3>
                 <p>Усі сторінки мають метатег <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>: без нього мобільні браузери масштабують сторінку як десктопну, і медіа-запити не спрацьовують належним чином. Обрані брейкпоінти:</p>
                 <ul>
-                    <li><b>Десктопна версія (понад 992px).</b> Основний макет: двоколонкова сітка, повна горизонтальна навігація, у звіті — бічне меню зліва та основний блок справа.</li>
-                    <li><b>Планшетна версія (769–992px для TechStore, до 992px для звіту та flex-сторінки).</b> Макет в одну колонку, сайдбар перетворюється на ряд карток (<code>flex-wrap</code>), картки курсів переносяться на новий рядок.</li>
-                    <li><b>Мобільна версія (до 768px для TechStore, до 640px для звіту та flex-сторінки).</b> Одна колонка, зменшені відступи, меню згортається в «бургер», картки курсів розташовуються стовпчиком.</li>
+                    <li><strong>Десктопна версія (понад 992px).</strong> Основний макет: двоколонкова сітка, повна горизонтальна навігація, у звіті — бічне меню зліва та основний блок справа.</li>
+                    <li><strong>Планшетна версія (769–992px для TechStore, до 992px для звіту та flex-сторінки).</strong> Макет в одну колонку, сайдбар перетворюється на ряд карток (<code>flex-wrap</code>), картки курсів переносяться на новий рядок.</li>
+                    <li><strong>Мобільна версія (до 768px для TechStore, до 640px для звіту та flex-сторінки).</strong> Одна колонка, зменшені відступи, меню згортається в «бургер», картки курсів розташовуються стовпчиком.</li>
                 </ul>
-                <p><b>Логічні оператори в медіа-запитах:</b></p>
+                <p><strong>Логічні оператори в медіа-запитах:</strong></p>
                 <ul>
                     <li><code>and</code> — умови поєднуються: <code>screen and (min-width: 769px) and (max-width: 992px)</code>;</li>
                     <li>кома — логічне «АБО»: <code>(max-height: 500px) and (orientation: landscape), (max-width: 360px)</code> — стилі застосуються, якщо виконується хоча б один із запитів;</li>
                     <li><code>not</code> — заперечення: <code>@media not print</code>.</li>
                 </ul>
                 <p>Також застосовано запит за орієнтацією пристрою (<code>orientation: landscape</code>) та <code>prefers-reduced-motion</code> для користувачів, які вимкнули анімації.</p>
-                <p><b>Медіа-запити звітного документа (додані до цього файлу):</b></p>
+                <p><strong>Медіа-запити звітного документа (додані до CSS-файлу звітів):</strong></p>
                 <pre><code>/* ===== Адаптивність звіту ===== */
 /* Планшет: до 992px */
 @media screen and (max-width: 992px) {
@@ -953,29 +870,31 @@ img { display: block; max-width: 100%; }
     .main-content { padding: 10px; }
 }
 
-/* Логічне &quot;або&quot; (кома) + орієнтація */
+/* Логічне "або" (кома) + орієнтація */
 @media screen and (max-height: 500px) and (orientation: landscape),
        screen and (max-width: 360px) {
     .header h3 { font-size: 0.85rem; }
     .main-content { height: auto; }
 }
 
-/* Логічне &quot;не&quot; */
+/* Логічне "не" */
 @media not print {
     .sidebar a { transition: background 0.2s; }
     .sidebar a:hover { background: #ffff99; }
 }</code></pre>
             </section>
 
-            <section id="topic9">
+            <section id="topic9" data-nav="ВИСНОВКИ">
                 <h3>ВИСНОВКИ</h3>
-                <p><b>Завдання №1.</b> Власний застосунок TechStore вдосконалено до повноцінного адаптивного дизайну: комбінований макет (CSS Grid + Flexbox), медіа-запити для десктопа, планшета і смартфона, бургер-меню без JavaScript, відносні одиниці (<code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>) та анімації (поява карток, hover-ефекти, плавне відкриття меню). Структуру проєкту розділено: HTML, CSS і зображення зберігаються окремо.</p>
-                <p><b>Завдання №2.</b> Реалізовано табличну верстку (фіксовану та гумову) та блокову верстку на плаваючих елементах (<code>float</code> + <code>clear</code>). Фіксований макет має передбачувану ширину, але не пристосований до різних екранів; гумовий розтягується разом із вікном, але на дуже широких екранах рядки стають задовгими. Табличну верстку нині вважають застарілою для макетів сторінок, а float потребує очищення потоку; обидва підходи поступаються Flexbox та Grid.</p>
-                <p><b>Завдання №3.</b> За допомогою Flexbox виконано сторінку варіанту 3. Властивості <code>flex</code>, <code>flex-direction</code>, <code>flex-wrap</code>, <code>justify-content</code>, <code>align-items</code> та <code>margin-top: auto</code> дозволили без «хаків» вирівняти картки за висотою і перебудовувати їх під різні екрани.</p>
-                <p><b>Адаптивність.</b> Використано медіа-запити з логічними операторами <code>and</code>, кома («або») та <code>not</code>, а також запит за орієнтацією пристрою. Для звітного документа додано власні медіа-запити, завдяки чому він зручно переглядається на десктопі, планшеті та смартфоні.</p>
+                <p><strong>Завдання №1.</strong> Власний застосунок TechStore вдосконалено до повноцінного адаптивного дизайну: комбінований макет (CSS Grid + Flexbox), медіа-запити для десктопа, планшета і смартфона, бургер-меню без JavaScript, відносні одиниці (<code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>) та анімації (поява карток, hover-ефекти, плавне відкриття меню). Структуру проєкту розділено: HTML, CSS і зображення зберігаються окремо.</p>
+                <p><strong>Завдання №2.</strong> Реалізовано табличну верстку (фіксовану та гумову) та блокову верстку на плаваючих елементах (<code>float</code> + <code>clear</code>). Фіксований макет має передбачувану ширину, але не пристосований до різних екранів; гумовий розтягується разом із вікном, але на дуже широких екранах рядки стають задовгими. Табличну верстку нині вважають застарілою для макетів сторінок, а float потребує очищення потоку; обидва підходи поступаються Flexbox та Grid.</p>
+                <p><strong>Завдання №3.</strong> За допомогою Flexbox виконано сторінку варіанту 3. Властивості <code>flex</code>, <code>flex-direction</code>, <code>flex-wrap</code>, <code>justify-content</code>, <code>align-items</code> та <code>margin-top: auto</code> дозволили без «хаків» вирівняти картки за висотою і перебудовувати їх під різні екрани.</p>
+                <p><strong>Адаптивність.</strong> Використано медіа-запити з логічними операторами <code>and</code>, кома («або») та <code>not</code>, а також запит за орієнтацією пристрою. Для звітного документа додано власні медіа-запити, завдяки чому він зручно переглядається на десктопі, планшеті та смартфоні.</p>
             </section>
-
-        </div>
+        </main>
     </div>
+
+    <footer id="report-footer"></footer>
+
 </body>
 </html>
